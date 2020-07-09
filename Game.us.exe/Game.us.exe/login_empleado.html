@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Login Empleado</title>
+</head>
+
+	<body>
+		<form id="loginEmpleado" method="get" action="alta_producto.php">
+			<p>
+				<i>Los campos obligatorios están marcados con </i><em>*</em>
+			</p>
+			<fieldset>
+					<legend>
+						Datos empleado
+					</legend>				
+					<label for="nick">Nickname:<em>*</em></label>
+					<input id="nick" name="nick" type="text" size="40" required/>
+					<br>
+				
+					<label for="pass">Password:<em>*</em></label>
+					<input type="password" name="pass" id="pass" placeholder="*********" required />
+					<br>
+				
+					
+			</fieldset>
+	
+			<input type="submit" value="Enviar" />
+		</form>
+	</body>
+</html>
