@@ -49,7 +49,7 @@
   		}
 	?>
 	
-	<form id="altaUsuario" method="get" action="formulario.php" onsubmit="validaciónContraseña()"
+	<form id="altaUsuario" method="get" action="validacion_alta_usuario2.php" onsubmit="validaciónContraseña()"
 		>
 		<!--novalidate-> 
 		<!--onsubmit="return validateForm()"-->   
@@ -64,23 +64,23 @@
 					</div>
 					
 					<div><label for="móvil">Móvil<em>*</em></label>
-					<input id="móvil" name="móvil" type="text" placeholder="123456789" pattern="^[0-9]{9}" title="Nueve dígitos" <?php echo $formulario['móvil'];?> required>
+					<input id="móvil" name="móvil" type="text" placeholder="123456789" pattern="^[0-9]{9}" title="Nueve dígitos" value="<?php echo $formulario['móvil'];?>" required>
 					</div>
 				
 					<div><label for="email">Email:<em>*</em></label>
-					<input id="email" name="email"  type="email" placeholder="usuario@dominio.extension" <?php echo $formulario['email'];?>" required/><br>
+					<input id="email" name="email"  type="email" placeholder="usuario@dominio.extension" value="<?php echo $formulario['email'];?>" required/><br>
 					</div>
 				
 					<div><label for="nick">Nickname:<em>*</em></label>
-					<input id="nickname" name="nickname" type="text" size="40" <?php echo $formulario['nickname'];?> required/>
+					<input id="nickname" name="nickname" type="text" size="40" value="<?php echo $formulario['nickname'];?>" required/>
 					</div>
 				
 					<div><label for="pass">Password:<em>*</em></label>
-					<input type="password" name="pass" id="pass" placeholder="Mínimo 8 caracteres entre letras y dígitos" required oninput="passwordValidation(); "/>
+					<input type="password"  name="pass" id="pass" placeholder="Mínimo 8 caracteres entre letras y dígitos" minlength="8" maxlength="20" size="20" value="<?php echo($formulario['pass']); ?>" required oninput="passwordValidation(); "/>
 					</div>
 				
 					<div><label for="confirmpass">Confirmar Password: </label>
-					<input type="password" name="confirmpass" id="confirmpass" placeholder="Confirmación de contraseña" oninput="passwordConfirmation();" required />
+					<input type="password" name="confirmpass" id="confirmpass" placeholder="Confirmación de contraseña" minlength="8" maxlength="20" size="20  required oninput="passwordConfirmation(); "/>
 					</div>
 			</fieldset>
 			<div><input type="submit" value="Enviar" /></div>

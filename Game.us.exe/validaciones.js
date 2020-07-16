@@ -21,11 +21,20 @@ function validaciónFechaJuego(){
 
 
 function validaciónContraseña(){
-	var a=document.getElementById("pass");
-	var b=document.getElementById("confirmpass");
-	
+	var aM=document.getElementById("pass");
+	var a = aM.value;
+	var bM = document.getElementById("confirmpass");
+var b = bM.value;
 	if(a!=b){
 		alert("Las contraseñas no son iguales");
+	}
+	
+function vC(){
+	var aM=document.getElementById("pass");
+	var a = aM.value;
+	
+	if(a<8){
+		alert("Las contraseñas no es grande");
 	}
 	
 }

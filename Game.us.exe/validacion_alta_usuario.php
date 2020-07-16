@@ -14,6 +14,14 @@
 		
 		// Guardar la variable local con los datos del formulario en la sesión.
 		$_SESSION["formulario"] = $nuevoUsuario;
+		$errores = validarDatosUsuario($nuevoUsuario);
+
+    if (!empty($errores)) {
+        $_SESSION["errores"] = $errores;
+        header("LOCATION:formulario.php");
+    } else {
+        header("LOCATION:validacion_alta_usuario2.php");
+    }
 	}	
 	else // En caso contrario, redireccionamos al formulario
 		Header("Location: formulario.php");		
@@ -27,6 +35,7 @@
 	if (count($errores)>0) {
 		// Guardo en la sesión los mensajes de error y volvemos al formulario
 		$_SESSION["errores"] = $errores;
+		
 		Header('Location: formulario.php');
 	} else
 		Header('Location: accion_alta_usuario.php');
