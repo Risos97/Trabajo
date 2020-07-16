@@ -19,7 +19,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <div class="topnav">
       <a href="formulario.php">Registro</a>
       <a href="producto.php">Producto</a>
-      <a href="login_empleado.php">Login</a>
+      <a href="login_empleado.php" >Login</a>
       <a href="perfil.php">Perfil</a>
       <a href="alta_producto.php">A-Producto</a>
       

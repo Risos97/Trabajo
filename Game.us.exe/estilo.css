@@ -3,7 +3,7 @@
 <head>
 <style>
 body  {
-  background: lightblue url("images/wooden.jpg");
+  background:  url("images/wooden.jpg");
   
 }
 #altaProducto{
@@ -22,7 +22,8 @@ body  {
 	top:5%;
 	left:47.5%;
 	height:200px;
-	width:200px
+	width:200px;
+	
 	}
 #pie{
 	position:absolute;
@@ -67,6 +68,7 @@ body  {
   background-color: #ddd;
   color: red;
 }
+
 
  h2 {
 	color: orange;

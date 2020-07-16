@@ -31,13 +31,13 @@ if (!isset($_SESSION["producto"])) {
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>Alta Producto</title>
+  <title>Modifica Producto</title>
   
   
 </head>
 
 
-	<body onload="myFunction()">
+	<body>
 	<script>
 		
 		
@@ -77,7 +77,7 @@ if (!isset($_SESSION["producto"])) {
 	
 	<form id="altaProducto" method="get" action="validacion_alta_producto.php" onsubmit=" validaciónFechaJuego()" method="post"
 	>
-			<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
+			<p><i>Modifica los campos deseados </i><em>*</em></p>
 			<fieldset><legend>Datos Producto</legend>				
 					<div><label for="idn">IDN:<em>*</em></label>
 					<input id="idn" name="idn" type="text" size="20" value="<?php echo $producto['idn'];?>" required/>

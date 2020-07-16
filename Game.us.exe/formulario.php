@@ -33,12 +33,7 @@
  </head>
  
 <body>
-	<script>
-		$(document).ready(function() {
-			$("#altaUsuario").on("submit", function() {
-				return validateForm();
-			});
-	</script>
+	<script src="validaciones.js"></script>
 	
 	<?php
 		include_once("cabecera.php");
@@ -54,7 +49,7 @@
   		}
 	?>
 	
-	<form id="altaUsuario" method="get" action="validacion_alta_usuario.php"
+	<form id="altaUsuario" method="get" action="formulario.php" onsubmit="validaciónContraseña()"
 		>
 		<!--novalidate-> 
 		<!--onsubmit="return validateForm()"-->   
@@ -77,7 +72,7 @@
 					</div>
 				
 					<div><label for="nick">Nickname:<em>*</em></label>
-					<input id="nick" name="nick" type="text" size="40" <?php echo $formulario['nick'];?> required/>
+					<input id="nickname" name="nickname" type="text" size="40" <?php echo $formulario['nickname'];?> required/>
 					</div>
 				
 					<div><label for="pass">Password:<em>*</em></label>
