@@ -7,13 +7,13 @@ function alta_usuario($conexion, $usuario) {
 		
 		try {
 			
-			$stmt = $conexion -> prepare("CALL INSERTAR_USUARIO( :nombre,:correo, :password,:direccion,:nickname,   :movil)");
+			$stmt = $conexion -> prepare("CALL INSERTAR_USUARIO( :nombre,:correo, :contraseña,:dirección,:nickname,:móvil)");
 			$stmt -> bindParam(":nombre", $usuario["nombre"]);
-			$stmt -> bindParam(":direccion", $usuario["direccion"]);
-			$stmt -> bindParam(":movil", $usuario["movil"]);
+			$stmt -> bindParam(":dirección", $usuario["dirección"]);
+			$stmt -> bindParam(":móvil", $usuario["móvil"]);
 			$stmt -> bindParam(":correo", $usuario["email"]);
 			$stmt -> bindParam(":nickname", $usuario["nickname"]);
-			$stmt -> bindParam(":password", $usuario["password"]);
+			$stmt -> bindParam(":contraseña", $usuario["pass"]);
 			 
 			 
 			$stmt -> execute();
@@ -47,9 +47,9 @@ function usuariosIguales($conexion, $usuario) {
 function consultarUsuario($conexion, $email, $pass) {
 
 	try {
-		$stmt = $conexion -> prepare("SELECT COUNT(*) FROM USUARIO WHERE CORREO = :correo AND CONTRASEÑA = :password");
+		$stmt = $conexion -> prepare("SELECT COUNT(*) FROM USUARIO WHERE CORREO = :correo AND CONTRASEÑA = :contraseña");
 		$stmt -> bindParam(":correo", $email);
-		$stmt -> bindParam(":password", $pass);
+		$stmt -> bindParam(":contraseña", $pass);
 		$stmt -> execute();
 		return $stmt -> FetchColumn();
 	} catch(PDOException $e) {

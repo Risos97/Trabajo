@@ -9,36 +9,37 @@
 		$nuevoUsuario["email"] = $_REQUEST["email"];
 		$nuevoUsuario["nickname"] = $_REQUEST["nickname"];
 		$nuevoUsuario["pass"] = $_REQUEST["pass"];
-		$nuevoUsuario["confirmpass"] = $_REQUEST["confirmpass"];
+		//$nuevoUsuario["confirmpass"] = $_REQUEST["confirmpass"];
 		
 		
 		// Guardar la variable local con los datos del formulario en la sesión.
 		$_SESSION["formulario"] = $nuevoUsuario;
 		$errores = validarDatosUsuario($nuevoUsuario);
 
-    if (!empty($errores)) {
-        $_SESSION["errores"] = $errores;
-        header("LOCATION:formulario.php");
-    } else {
-        header("LOCATION:validacion_alta_usuario2.php");
-    }
+    	if (!empty($errores)) {
+        	$_SESSION["errores"] = $errores;
+        	header("LOCATION:formulario.php");
+    	} else {
+        	header("LOCATION:validacion_alta_usuario2.php");
+    	}
+	
+	} else {// En caso contrario, redireccionamos al formulario
+		Header("Location: formulario.php");	
 	}	
-	else // En caso contrario, redireccionamos al formulario
-		Header("Location: formulario.php");		
 	
 	// Validamos el formulario en servidor
-	$conexion = crearConexionBD(); 
-	$errores = validarDatosUsuario($conexion, $nuevoUsuario);
-	cerrarConexionBD($conexion);
+	//$conexion = crearConexionBD(); 
+	//$errores = validarDatosUsuario($conexion, $nuevoUsuario);
+	//cerrarConexionBD($conexion);
 	
 	// Comprobamos los errores
-	if (count($errores)>0) {
+	// if (count($errores)>0) {
 		// Guardo en la sesión los mensajes de error y volvemos al formulario
-		$_SESSION["errores"] = $errores;
+	//	$_SESSION["errores"] = $errores;
 		
-		Header('Location: formulario.php');
-	} else
-		Header('Location: accion_alta_usuario.php');
+	//	Header('Location: formulario.php');
+	// } else
+	//	Header('Location: accion_alta_usuario.php');
 	//Validación en el servidor de alta usuario
 	
 function validarDatosUsuario($conexion, $nuevoUsuario){

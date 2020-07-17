@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	require_once("gestionBD.php");
+	
 	
 // Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
 	if (!isset($_SESSION["formulario"])) {
@@ -22,7 +22,7 @@
 		$errores = $_SESSION["errores"];
 		unset($_SESSION["errores"]);
 	}
-	$conexion = crearConexionBD();
+	
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +49,7 @@
   		}
 	?>
 	
-	<form id="altaUsuario" method="get" action="validacion_alta_usuario2.php" onsubmit="validaciónContraseña()"
+	<form id="altaUsuario" method="post" action="validacion_alta_usuario.php" onsubmit="validaciónContraseña()";
 		>
 		<!--novalidate-> 
 		<!--onsubmit="return validateForm()"-->   
@@ -64,11 +64,11 @@
 					</div>
 					
 					<div><label for="móvil">Móvil<em>*</em></label>
-					<input id="móvil" name="móvil" type="text" placeholder="123456789" pattern="^[0-9]{9}" title="Nueve dígitos" value="<?php echo $formulario['móvil'];?>" required>
+					<input id="móvil" name="móvil" type="text" placeholder="123456789" pattern="^[0-9]{9}" title="Nueve dígitos" value="<?php echo $formulario['móvil'];?>" required/>
 					</div>
 				
 					<div><label for="email">Email:<em>*</em></label>
-					<input id="email" name="email"  type="email" placeholder="usuario@dominio.extension" value="<?php echo $formulario['email'];?>" required/><br>
+					<input id="email" name="email"  type="email" placeholder="usuario@dominio.extension" value="<?php echo $formulario['email'];?>" required/>
 					</div>
 				
 					<div><label for="nick">Nickname:<em>*</em></label>
@@ -76,11 +76,11 @@
 					</div>
 				
 					<div><label for="pass">Password:<em>*</em></label>
-					<input type="password"  name="pass" id="pass" placeholder="Mínimo 8 caracteres entre letras y dígitos" minlength="8" maxlength="20" size="20" value="<?php echo($formulario['pass']); ?>" required oninput="passwordValidation(); "/>
+					<input type="password"  name="pass" id="pass" placeholder="Mínimo 8 caracteres entre letras y dígitos" minlength="8" maxlength="20" size="20" value="<?php echo($formulario['pass']); ?>" required/>
 					</div>
 				
 					<div><label for="confirmpass">Confirmar Password: </label>
-					<input type="password" name="confirmpass" id="confirmpass" placeholder="Confirmación de contraseña" minlength="8" maxlength="20" size="20  required oninput="passwordConfirmation(); "/>
+					<input type="password" name="confirmpass" id="confirmpass" placeholder="Confirmación de contraseña" minlength="8" maxlength="20" size="20" required/>
 					</div>
 			</fieldset>
 			<div><input type="submit" value="Enviar" /></div>

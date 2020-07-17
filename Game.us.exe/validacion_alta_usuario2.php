@@ -20,7 +20,6 @@ $conexion = crearConexionBD();
 <html lang="es">
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="css/alex.css" />
 		<title>Testeo: Alta de Usuario</title>
 	</head>
 
@@ -43,8 +42,8 @@ $conexion = crearConexionBD();
 		<ul>
 			<?php
 			echo "<li>Nombre: " . $nuevoUsuario["nombre"] . "</li>";
-			echo "<li>Direccion: " . $nuevoUsuario["direccion"] . "</li>";
-			echo "<li>Movil: " . $nuevoUsuario["movil"] . "</li>";
+			echo "<li>Direccion: " . $nuevoUsuario["dirección"] . "</li>";
+			echo "<li>Movil: " . $nuevoUsuario["móvil"] . "</li>";
 			echo "<li>email: " . $nuevoUsuario["email"] . "</li>";
 			echo "<li>Nickname: " . $nuevoUsuario["nickname"] . "</li>";
 			echo "<li>Pass: " . $nuevoUsuario["pass"] . "</li>";
@@ -56,7 +55,7 @@ $conexion = crearConexionBD();
 		<?php } else { ?>
 		<!-- MENSAJE DE QUE USUARIO YA EXISTE -->
 		<h3>Ya existe un usuario registrado con sus datos</h3>
-		<h4>Hay un usuario registrado con su NIF, su Email o su Nickname</h4>
+		<h4>Hay un usuario registrado con su Email o su Nickname</h4>
 		<p>
 			<a href="formulario.php">Volver al formulario</a>
 		</p>
