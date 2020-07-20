@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	
+	//include_once ("estilo.css"); 
 	
 // Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
 	if (!isset($_SESSION["formulario"])) {
@@ -30,10 +30,13 @@
 <head>
   <meta charset="utf-8">
   <title>Alta Usuario</title>
- </head>
+  
+	
+
+</head>
  
 <body>
-	<script src="validaciones.js"></script>
+	
 	
 	<?php
 		include_once("cabecera.php");
@@ -49,7 +52,19 @@
   		}
 	?>
 	
-	<form id="altaUsuario" method="post" action="validacion_alta_usuario.php" onsubmit="validaciónContraseña()";
+	<script type="text/javascript">
+  	function validacionContraseña(){
+		var aM=document.getElementById("pass");
+		var a = aM.value;
+		var bM = document.getElementById("confirmpass");
+		var b = bM.value;
+		if(a!=b){
+			window.alert("Las contraseñas no son iguales");
+		}
+  	}
+  </script>
+	
+	<form id="altaUsuario" method="post" action="validacion_alta_usuario.php" onsubmit="validacionContraseña()"
 		>
 		<!--novalidate-> 
 		<!--onsubmit="return validateForm()"-->   
@@ -76,11 +91,11 @@
 					</div>
 				
 					<div><label for="pass">Password:<em>*</em></label>
-					<input type="password"  name="pass" id="pass" placeholder="Mínimo 8 caracteres entre letras y dígitos" minlength="8" maxlength="20" size="20" value="<?php echo($formulario['pass']); ?>" required/>
+					<input type="password"  name="pass" id="pass" placeholder="Mínimo 8 caracteres entre letras y dígitos" minlength="8" maxlength="20" size="20" value="<?php echo($formulario['pass']); ?>" required />
 					</div>
 				
 					<div><label for="confirmpass">Confirmar Password: </label>
-					<input type="password" name="confirmpass" id="confirmpass" placeholder="Confirmación de contraseña" minlength="8" maxlength="20" size="20" required/>
+					<input type="password" name="confirmpass" id="confirmpass" placeholder="Confirmación de contraseña" minlength="8" maxlength="20" size="20" required />
 					</div>
 			</fieldset>
 			<div><input type="submit" value="Enviar" /></div>
@@ -88,7 +103,7 @@
 	
 	<?php
 		include_once("pie.php");
-		cerrarConexionBD($conexion);
+		
 	?>
 	
 	</body>

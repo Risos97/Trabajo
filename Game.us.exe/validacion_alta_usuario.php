@@ -9,7 +9,7 @@
 		$nuevoUsuario["email"] = $_REQUEST["email"];
 		$nuevoUsuario["nickname"] = $_REQUEST["nickname"];
 		$nuevoUsuario["pass"] = $_REQUEST["pass"];
-		//$nuevoUsuario["confirmpass"] = $_REQUEST["confirmpass"];
+		$nuevoUsuario["confirmpass"] = $_REQUEST["confirmpass"];
 		
 		
 		// Guardar la variable local con los datos del formulario en la sesión.
@@ -71,9 +71,6 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 	// Validación de la contraseña
 	if(!isset($nuevoUsuario["pass"]) || strlen($nuevoUsuario["pass"])<8){
 		$errores [] = "<p>Contraseña no válida: debe tener al menos 8 caracteres</p>";
-	}else if(!preg_match("/[a-z]+/", $nuevoUsuario["pass"]) || 
-		!preg_match("/[A-Z]+/", $nuevoUsuario["pass"])){
-		$errores[] = "<p>Contraseña no válida: debe contener letras mayúsculas y minúsculas</p>";
 	}else if($nuevoUsuario["pass"] != $nuevoUsuario["confirmpass"]){
 		$errores[] = "<p>La confirmación de contraseña no coincide con la contraseña</p>";
 	}

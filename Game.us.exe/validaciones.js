@@ -20,14 +20,15 @@ function validaciónFechaJuego(){
 }
 
 
-function validaciónContraseña(){
-	var aM=document.getElementById("pass");
-	var a = aM.value;
-	var bM = document.getElementById("confirmpass");
-var b = bM.value;
-	if(a!=b){
-		alert("Las contraseñas no son iguales");
-	}
+function validacionContraseña(){
+		var aM=document.getElementById("pass");
+		var a = aM.value;
+		var bM = document.getElementById("confirmpass");
+		var b = bM.value;
+		if(a!=b){
+			window.alert("Las contraseñas no son iguales");
+		}
+  	}
 	
 function vC(){
 	var aM=document.getElementById("pass");

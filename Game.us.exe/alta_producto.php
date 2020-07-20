@@ -32,35 +32,15 @@ if (!isset($_SESSION["producto"])) {
 <head>
   <meta charset="utf-8">
   <title>Alta Producto</title>
-  
+  <script src="validaciones.js" type="text/javascript"></script>
   
 </head>
 
 
-	<body onload="myFunction()">
-	<script>
-		
-		
-		function validaciónFechaJuego(){
-	var date = document.getElementById("launch");
-	var aux = date.value;
+<body>
 	
-	var ahora = new Date();
-	var fJuego= new Date(aux);
-	//document.write(ahora);
-	if(ahora>fJuego){
-		//document.write(fJuego);
-		//var error= "Una fecha de lanzamiento de un juego tiene que ser posterior a ahora";
-		alert("Una fecha de lanzamiento de un juego tiene que ser posterior a ahora");
 		
-	}
 	
-	//launch.setCustomValidity(error);
-	
-	//return error;
-}
-	</script>	
-
 	<?php
 		include_once("cabecera.php");
 	?>
@@ -75,7 +55,7 @@ if (!isset($_SESSION["producto"])) {
   		}
 	?>
 	
-	<form id="altaProducto" method="get" action="validacion_alta_producto.php" onsubmit=" validaciónFechaJuego()" method="post"
+	<form id="altaProducto" method="post" action="validacion_alta_producto.php" onsubmit=" validaciónFechaJuego()" 
 	>
 			<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
 			<fieldset><legend>Datos Producto</legend>				
