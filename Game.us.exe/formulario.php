@@ -54,19 +54,18 @@
 	
 	<script type="text/javascript">
   	function validacionContraseña(){
-		var aM=document.getElementById("pass");
-		var a = aM.value;
-		var bM = document.getElementById("confirmpass");
-		var b = bM.value;
-		if(a!=b){
+		var password=document.getElementById("pass");
+		var pass = password.value;
+		var confirmpass = document.getElementById("confirmpass");
+		var conpass= confirmpass.value;
+		if(pass!=confirmpass){
 			window.alert("Las contraseñas no son iguales");
 		}
   	}
   </script>
 	
-	<form id="altaUsuario" method="post" action="validacion_alta_usuario.php" onsubmit="validacionContraseña()"
-		>
-		<!--novalidate-> 
+	<form id="altaUsuario" method="post" action="validacion_alta_usuario.php" onsubmit="validacionContraseña()">
+		
 		<!--onsubmit="return validateForm()"-->   
 		<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
 		<fieldset><legend>Datos Usuario</legend>
@@ -91,7 +90,7 @@
 					</div>
 				
 					<div><label for="pass">Password:<em>*</em></label>
-					<input type="password"  name="pass" id="pass" placeholder="Mínimo 8 caracteres entre letras y dígitos" minlength="8" maxlength="20" size="20" value="<?php echo($formulario['pass']); ?>" required />
+					<input type="password"  name="pass" id="pass" placeholder="Mínimo 8 caracteres entre letras y dígitos" minlength="8" maxlength="20" size="20" value="<?php echo($formulario['pass']); ?>" required onsubmit="validacionContraseña()"/>
 					</div>
 				
 					<div><label for="confirmpass">Confirmar Password: </label>

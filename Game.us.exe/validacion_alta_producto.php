@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	require_once("gestionBD.php");
+	
 	
 	if (isset($_SESSION["producto"])) {
 		// Recogemos los datos del formulario
@@ -15,22 +15,20 @@
 		
 		// Guardar la variable local con los datos del formulario en la sesión.
 		$_SESSION["producto"] = $nuevoProducto;
+		$errores = validarDatosProducto($nuevoProducto);
+		
+		if(!empty($errores)){
+			$_SESSION["errores"] = $errores;
+			header("LOCATION:alta_producto.php");
+		}else{
+			header("LOCATION:validacion_alta_producto2.php");
+		}
 	}	
-	else // En caso contrario, redireccionamos al formulario
+	else // En caso contrario, redireccionamos a altaProducto
 		Header("Location: alta_producto.php");		
 	
-	// Validamos el formulario en servidor
-	$conexion = crearConexionBD(); 
-	$errores = validarDatosProducto($conexion, $nuevoProducto);
-	cerrarConexionBD($conexion);
+
 	
-	// Comprobamos los errores
-	if (count($errores)>0) {
-		// Guardo en la sesión los mensajes de error y volvemos al formulario
-		$_SESSION["errores"] = $errores;
-		Header('Location: alta_producto.php');
-	} else
-		Header('Location: alta_producto.php');
 	//Validación en el servidor de alta producto
 	
 function validarDatosProducto($conexion, $nuevoProducto){

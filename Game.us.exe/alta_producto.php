@@ -1,10 +1,10 @@
 <?php
 	session_start();
-	require_once("gestionBD.php");
 	include_once ("estilo.css"); 
 
+	// Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
 	
-if (!isset($_SESSION["producto"])) {
+	if (!isset($_SESSION["producto"])) {
 		$producto['idn'] = "";
 		$producto['precio'] = "";
 		$producto['nombre'] = "";
@@ -24,7 +24,7 @@ if (!isset($_SESSION["producto"])) {
 		$errores = $_SESSION["errores"];
 		unset($_SESSION["errores"]);
 	}
-	$conexion = crearConexionBD();
+	
 ?>
 
 <!DOCTYPE html>
@@ -32,8 +32,6 @@ if (!isset($_SESSION["producto"])) {
 <head>
   <meta charset="utf-8">
   <title>Alta Producto</title>
-  <script src="validaciones.js" type="text/javascript"></script>
-  
 </head>
 
 
@@ -55,24 +53,42 @@ if (!isset($_SESSION["producto"])) {
   		}
 	?>
 	
-	<form id="altaProducto" method="post" action="validacion_alta_producto.php" onsubmit=" validaciónFechaJuego()" 
-	>
+	<script type="text/javascript">
+	function validaciónFechaJuego(){
+	var date = document.getElementById("launch");
+	var aux = date.value;
+	var fecha_salidaMin= new DateTime();
+	var fechaSal = $fecha_salidaMin->format("1/1/1900");
+	var fJuego= new Date(aux);
+	
+	if(fechaSal>fJuego){
+		//document.write(fJuego);
+		//var error= "Una fecha de lanzamiento de un juego tiene que ser posterior a ahora";
+		window.alert("Una fecha de lanzamiento de un juego tiene que ser posterior a ahora");
+	}
+	
+}	
+		
+	</script>
+	
+	<form id="altaProducto" method="post" action="validacion_alta_producto.php" onsubmit=" validaciónFechaJuego()" >
+			
 			<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
 			<fieldset><legend>Datos Producto</legend>				
 					<div><label for="idn">IDN:<em>*</em></label>
-					<input id="idn" name="idn" type="text" size="20" value="<?php echo $producto['idn'];?>" required/>
+					<input id="idn" name="idn" type="text" size="20" value="<?php echo $producto['idn'];?>" required>
 					</div>
 					
 					<div><label for="precio">Precio<em>*</em></label>
-					<input id="precio" name="precio" type="number" min = "0" value="<?php echo $producto['precio'];?>" required>
+					<input id="precio" name="precio" type="number" min = "0" step="0.01"value="<?php echo $producto['precio'];?>" required>
 					</div>
 					
 					<div><label for="nombre">Nombre:<em>*</em></label>
-					<input id="nombre" name="nombre" type="text" size="20" value="<?php echo $producto['nombre'];?>" required/>
+					<input id="nombre" name="nombre" type="text" size="20" value="<?php echo $producto['nombre'];?>" required>
 					</div>
 				
 					<div><label for="descripcion">Descripción:<em>*</em></label>
-					<input id="descripcion" name="descripcion" type="text" size="50" value="<?php echo $producto['descripcion'];?>" required/>
+					<input id="descripcion" name="descripcion" type="text" size="50" value="<?php echo $producto['descripcion'];?>" required>
 					</div>
 				
 					<div><label for="stock">Stock<em>*</em></label>
@@ -80,7 +96,7 @@ if (!isset($_SESSION["producto"])) {
 					</div>
 				
 					<div><label>Fecha de lanzamiento:</label>
-					<input type="date" id="launch" name="fechaLanzamiento" title="Introduzca la fecha de lanzamiento" value="<?php echo $producto['fechaLanzamiento'];?>" required oninput="birthDateValidation();">
+					<input type="date" id="launch" name="fechaLanzamiento" title="Introduzca la fecha de lanzamiento" value="<?php echo $producto['fechaLanzamiento'];?>" required >
 					</div>
 					
 					
@@ -88,24 +104,18 @@ if (!isset($_SESSION["producto"])) {
 					<div><label for="tipo">Escoge un tipo:</label>
 
 					<input type="radio" name="tipo" value="videojuego">VIDEOJUEGO
-					<input type="radio" name="tipo" value="consola">CONSOLA
+					<input type="radio" name="tipo" value="plataforma">PLATAFORMA
 					<input type="radio" name="tipo" value="merchandising">MERCHANDISING
 		
 					</div>
 				</fieldset>
-			<div><input type="submit" value="Enviar" /></div>
+				<div><input type="submit" value="Enviar" /></div>
 		</form>
 		
 		<?php
-	
 		include_once("pie.php");
-		cerrarConexionBD($conexion);
-		?>
 		
-      
-    
-      
-     
+		?>
 		
 	</body>
 </html>

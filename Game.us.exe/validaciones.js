@@ -1,5 +1,13 @@
 //validaciones
-
+function validateForm() {
+		// Comprobar que la longitud de la contraseña es >=8, que contiene letras mayúsculas y minúsculas y números
+		var error1 = validacionContraseña();
+        
+		var error2 = vc();
+        
+		return (error1.length==0) && (error2.length==0);
+	}
+	
 function validaciónFechaJuego(){
 	alert("Una fecha de lanzamiento de un juego tiene que ser posterior a ahora");
 	var date = document.getElementById("launch");
