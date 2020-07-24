@@ -60,6 +60,7 @@
 		var conpass= confirmpass.value;
 		if(pass!=confirmpass){
 			window.alert("Las contraseñas no son iguales");
+			window.location.href = "formulario.php";
 		}
   	}
   </script>

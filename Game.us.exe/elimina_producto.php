@@ -1,8 +1,7 @@
 <?php
 	session_start();
-	require_once("gestionBD.php");
-	include_once ("estilo.css"); 
-
+	
+	
 	
 if (!isset($_SESSION["producto"])) {
 		$producto['idn'] = "";
@@ -19,7 +18,6 @@ if (!isset($_SESSION["producto"])) {
 		$errores = $_SESSION["errores"];
 		unset($_SESSION["errores"]);
 	}
-	$conexion = crearConexionBD();
 ?>
 
 <!DOCTYPE html>
@@ -33,28 +31,7 @@ if (!isset($_SESSION["producto"])) {
 
 
 	<body>
-	<script>
-		
-		
-		function validaciónFechaJuego(){
-	var date = document.getElementById("launch");
-	var aux = date.value;
-	
-	var ahora = new Date();
-	var fJuego= new Date(aux);
-	//document.write(ahora);
-	if(ahora>fJuego){
-		//document.write(fJuego);
-		//var error= "Una fecha de lanzamiento de un juego tiene que ser posterior a ahora";
-		alert("Una fecha de lanzamiento de un juego tiene que ser posterior a ahora");
-		
-	}
-	
-	//launch.setCustomValidity(error);
-	
-	//return error;
-}
-	</script>	
+
 
 	<?php
 		include_once("cabecera.php");
@@ -70,8 +47,7 @@ if (!isset($_SESSION["producto"])) {
   		}
 	?>
 	
-	<form id="altaProducto" method="get"   
-	>
+	<form id="eliminaProducto" method="post"  action="validacion_elimina.php">
 			<p><i>Introduce el id del producto a eliminar </i><em>*</em></p>
 			<fieldset><legend></legend>				
 					<div><label for="idn">IDN:<em>*</em></label>
@@ -80,13 +56,13 @@ if (!isset($_SESSION["producto"])) {
 					
 					
 				</fieldset>
-			<div><input type="submit" value="Enviar" /></div>
+			<div><input type="submit" value="Eliminar" /></div>
 		</form>
 		
 		<?php
 	
 		include_once("pie.php");
-		cerrarConexionBD($conexion);
+		
 		?>
 		
       

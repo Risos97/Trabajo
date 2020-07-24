@@ -61,6 +61,18 @@ function todosLosProductos($conexion){
     return $conexion->query($consulta);
 }
 
+function eliminaProducto($conexion,$idn){
+	
+	try{
+		$stmt = $conexion -> prepare("DELETE  FROM PRODUCTO WHERE IDN = :idn");
+		$stmt -> bindParam(":idn", $idn["idn"]);
+		$stmt -> execute();
+		
+	} catch(PDOException $e) {
+		echo("error: " . $e -> GetMessage());
+	}
+}
+
 function actualizar($conexion, $actprod) {
 	$resultado = false;
 	
