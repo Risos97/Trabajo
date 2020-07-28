@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	//include_once ("estilo.css"); 
+	
 	
 // Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
 	if (!isset($_SESSION["formulario"])) {
@@ -31,7 +31,10 @@
   <meta charset="utf-8">
   <title>Alta Usuario</title>
   
-	
+  
+	<script type="text/javascript" src="Js/validaciones.js">
+		
+	</script>
 
 </head>
  
@@ -50,24 +53,20 @@
 			} 
     		echo "</div>";
   		}
+
+	
 	?>
 	
-	<script type="text/javascript">
-  	function validacionContraseña(){
-		var password=document.getElementById("pass");
-		var pass = password.value;
-		var confirmpass = document.getElementById("confirmpass");
-		var conpass= confirmpass.value;
-		if(pass!=confirmpass){
-			window.alert("Las contraseñas no son iguales");
-			window.location.href = "formulario.php";
-		}
-  	}
-  </script>
+	<script>
+	//////window.alert("jekdcwsc");
+ 	
+	</script>
 	
-	<form id="altaUsuario" method="post" action="validacion_alta_usuario.php" onsubmit="validacionContraseña()">
+	
+	<form id="altaUsuario" method="get"  onsubmit="validateForm()">
 		
-		<!--onsubmit="return validateForm()"-->   
+		<!--novalidate-> 
+		<!--onsubmit="return validateForm()"-->     
 		<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
 		<fieldset><legend>Datos Usuario</legend>
 					<div><label for="nombre">Nombre:<em>*</em></label>
@@ -91,11 +90,13 @@
 					</div>
 				
 					<div><label for="pass">Password:<em>*</em></label>
-					<input type="password"  name="pass" id="pass" placeholder="Mínimo 8 caracteres entre letras y dígitos" minlength="8" maxlength="20" size="20" value="<?php echo($formulario['pass']); ?>" required onsubmit="validacionContraseña()"/>
+					<input type="password"  name="pass" id="pass" placeholder="Mínimo 8 caracteres entre letras y dígitos" minlength="8" maxlength="20" size="20" value="<?php echo($formulario['pass']); ?>" 
+					required/>
 					</div>
 				
 					<div><label for="confirmpass">Confirmar Password: </label>
-					<input type="password" name="confirmpass" id="confirmpass" placeholder="Confirmación de contraseña" minlength="8" maxlength="20" size="20" required />
+					<input type="password" name="confirmpass" id="confirmpass" placeholder="Confirmación de contraseña" minlength="8" maxlength="20" size="20" 
+					 required/>
 					</div>
 			</fieldset>
 			<div><input type="submit" value="Enviar" /></div>
@@ -105,6 +106,6 @@
 		include_once("pie.php");
 		
 	?>
-	
+	<script type="text/javascript" src="Js/validaciones.js"> </script>
 	</body>
 </html>

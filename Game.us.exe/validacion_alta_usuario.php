@@ -42,7 +42,7 @@
 	//	Header('Location: accion_alta_usuario.php');
 	//Validación en el servidor de alta usuario
 	
-function validarDatosUsuario($conexion, $nuevoUsuario){
+function validarDatosUsuario($nuevoUsuario){
 	$errores=array();
 	
 	// Validación del Nombre			
