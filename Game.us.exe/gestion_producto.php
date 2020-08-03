@@ -73,31 +73,19 @@ function eliminaProducto($conexion,$idn){
 	}
 }
 
-function actualizar($conexion, $actprod) {
-	$resultado = false;
-	
-	$oid_pr = $actprod["oid_pr"];
-	$nombre = $actprod["nombre"];
-	$fechaLanzamiento = $actprod["fecha_lanzamiento"];
-	$precio = $actprod["precio"];
-	$stock = $actprod["stock"];
-
+function actualizar($conexion, $precio, $stock) {
 	try {
 
-		$stmt = $conexion -> prepare("UPDATE PRODUCTO SET NOMBRE = :nombre, FECHA_LANZAMIENTO = TO_DATE(:fecha_lanzamiento, 'YYYY-MM-DD'), SET PRECIO = :precio, SET STOCK = :stock WHERE OID_PRODUCTO = :oid_pr");
-		$stmt -> bindParam(":nombre", $nombre);
-		$stmt -> bindParam(":oid_pr", $oid_pr);
-		$stmt -> bindParam(":fecha_lanzamiento", $fechaLanzamiento);
+		$stmt = $conexion -> prepare("UPDATE PRODUCTO SET  SET PRECIO = :precio, SET STOCK = :stock WHERE IDN = :idn");
+		$stmt -> bindParam(":idn", $idn);
 		$stmt -> bindParam(":precio", $precio);
 		$stmt -> bindParam(":stock", $stock);
 		$stmt -> execute();
-		$resultado = true;
+		return "";
 
 	} catch(PDOException $e) {
 		echo("error: " . $e -> GetMessage());
 	}
-
-return $resultado;
 }
 
 function productosIguales($conexion, $producto) {
