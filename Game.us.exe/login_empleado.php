@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
 		$login = "error";
 	else {
 		$_SESSION['login'] = $email;
-		Header("Location: alta_producto.php");
+		Header("Location: Princip.php");
 	}
 }
 ?>

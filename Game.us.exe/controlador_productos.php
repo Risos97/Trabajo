@@ -2,7 +2,6 @@
 	session_start();
 	
 	if (isset($_REQUEST["OID_PRODUCTO"])){
-		$producto["OID_PRODUCTO"] = $_REQUEST["OID_PRODUCTO"];
 		$producto["IDN"] = $_REQUEST["IDN"];
 		$producto["PRECIO"] = $_REQUEST["PRECIO"];
 		$producto["NOMBRE"] = $_REQUEST["NOMBRE"];

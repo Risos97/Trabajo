@@ -6,7 +6,8 @@ if (session_status() == PHP_SESSION_NONE) {
 
 function crearConexionBD()
 {
-	$host="oci:dbname=DESKTOP-KLKKA8V/xe;charset=UTF8";
+	$host="oci:dbname=DESKTOP-PF0QSRG;charset=UTF8";
+	/* $host="oci:dbname=DESKTOP-PF0QSRG;charset=UTF8"; */	
 	$usuario="RISOS";
 	$password="risos";
 

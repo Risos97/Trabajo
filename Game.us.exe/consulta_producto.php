@@ -3,7 +3,7 @@ session_start();
 
 require_once ("gestionBD.php");
 require_once ("gestion_producto.php");
-require_once ("consulta_paginación.php");
+require_once ("consulta_paginacion.php");
 
 if (!isset($_SESSION['login']))
 	Header("Location: login_empleado.php");
@@ -134,51 +134,57 @@ include_once ("cabecera.php");
 
 		<form method="post" action="controlador_productos.php">
 
-			<div class="fila_libro">
+			<div class="fila_producto">
 
-				<div class="datos_libro">
+				<div class="datos_producto">
 
-					<input id="OID_LIBRO" name="OID_LIBRO"
+					<input id="IDN" name="IDN"
 
-						type="hidden" value="<?php echo $fila["OID_LIBRO"]; ?>"/>
+						type="hidden" value="<?php echo $fila["IDN"]; ?>"/>
 
-					<input id="OID_AUTOR" name="OID_AUTOR"
+					<input id="PRECIO" name="PRECIO"
 
-						type="hidden" value="<?php echo $fila["OID_AUTOR"]; ?>"/>
-
-					<input id="OID_AUTORIA" name="OID_AUTORIA"
-
-						type="hidden" value="<?php echo $fila["OID_AUTORIA"]; ?>"/>
+						type="hidden" value="<?php echo $fila["PRECIO"]; ?>"/>
 
 					<input id="NOMBRE" name="NOMBRE"
 
 						type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
 
-					<input id="APELLIDOS" name="APELLIDOS"
+					<input id="DESCRIPCION" name="DESCRIPCION"
 
-						type="hidden" value="<?php echo $fila["APELLIDOS"]; ?>"/>
+						type="hidden" value="<?php echo $fila["DESCRIPCION"]; ?>"/>
 
+					<input id="STOCK" name="STOCK"
 
+						type="hidden" value="<?php echo $fila["STOCK"]; ?>"/>
+						
+					<input id="FECHA_LANZAMIENTO" name="FECHA_LANZAMIENTO"
+
+						type="hidden" value="<?php echo $fila["FECHA_LANZAMIENTO"]; ?>"/>
+
+					<input id="TIPO" name="TIPO"
+
+						type="hidden" value="<?php echo $fila["TIPO"]; ?>"/>
 
 				<?php
 
-					if (isset($libro) and ($libro["OID_LIBRO"] == $fila["OID_LIBRO"])) { ?>
+					if (isset($producto) and ($producto["IDN"] == $fila["IDN"])) { ?>
 
 						<!-- Editando título -->
 
-						<h3><input id="TITULO" name="TITULO" type="text" value="<?php echo $fila["TITULO"]; ?>"/>	</h3>
+						<h3><input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila["NOMBRE"]; ?>"/>	</h3>
 
-						<h4><?php echo $fila["NOMBRE"] . " " . $fila["APELLIDOS"]; ?></h4>
+						<h4><?php echo $fila["DESCRIPCION"] . " " . $fila["PRECIO"]; ?></h4>
 
 				<?php }	else { ?>
 
 						<!-- mostrando título -->
 
-						<input id="TITULO" name="TITULO" type="hidden" value="<?php echo $fila["TITULO"]; ?>"/>
+						<input id="NOMBRE" name="NOMBRE" type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
 
-						<div class="titulo"><b><?php echo $fila["TITULO"]; ?></b></div>
+						<div class="nombre"><b><?php echo $fila["NOMBRE"]; ?></b></div>
 
-						<div class="autor">By <em><?php echo $fila["NOMBRE"] . " " . $fila["APELLIDOS"]; ?></em></div>
+						<div class="infor"> <em><?php echo $fila["DESCRIPCION"] . " " . $fila["PRECIO"]; ?></em></div>
 
 				<?php } ?>
 
@@ -188,11 +194,11 @@ include_once ("cabecera.php");
 
 				<div id="botones_fila">
 
-				<?php if (isset($libro) and ($libro["OID_LIBRO"] == $fila["OID_LIBRO"])) { ?>
+				<?php if (isset($producto) and ($producto["IDN"] == $fila["IDN"])) { ?>
 
 						<button id="grabar" name="grabar" type="submit" class="editar_fila">
 
-							<img src="images/bag_menuito.bmp" class="editar_fila" alt="Guardar modificación">
+							<img src="images/OJO.jpg" class="editar_fila" alt="Guardar modificación">
 
 						</button>
 
@@ -200,7 +206,7 @@ include_once ("cabecera.php");
 
 						<button id="editar" name="editar" type="submit" class="editar_fila">
 
-							<img src="images/pencil_menuito.bmp" class="editar_fila" alt="Editar libro">
+							<img src="images/LAPIZ.png" class="editar_fila" alt="Editar producto">
 
 						</button>
 
@@ -208,7 +214,7 @@ include_once ("cabecera.php");
 
 					<button id="borrar" name="borrar" type="submit" class="editar_fila">
 
-						<img src="images/remove_menuito.bmp" class="editar_fila" alt="Borrar libro">
+						<img src="images/BORRAR.png" class="editar_fila" alt="Borrar producto">
 
 					</button>
 
