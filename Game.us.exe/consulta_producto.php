@@ -191,7 +191,7 @@ include_once ("cabecera.php");
 				</div>
 
 
-
+				<!-- 
 				<div id="botones_fila">
 
 				<?php if (isset($producto) and ($producto["IDN"] == $fila["IDN"])) { ?>
@@ -219,7 +219,7 @@ include_once ("cabecera.php");
 					</button>
 
 				</div>
-
+				-->
 			</div>
 
 		</form>

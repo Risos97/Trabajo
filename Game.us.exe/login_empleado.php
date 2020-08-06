@@ -14,13 +14,19 @@ if (isset($_POST['submit'])) {
 
 	$conexion = crearConexionBD();
 	$num_usuarios = consultarUsuario($conexion, $email, $pass);
+	$empleado = tocha($conexion, $email); 
 	cerrarConexionBD($conexion);
-
+	print ($empleado);
+	
 	if ($num_usuarios == 0)
 		$login = "error";
-	else {
-		$_SESSION['login'] = $email;
-		Header("Location: Princip.php");
+	else{ if($empleado == 0){
+			$_SESSION['login'] = $email;
+			Header("Location: Princip.php"); }
+		else {
+			$_SESSION['login'] = $email;
+			Header("Location: MenuEmplead.php");
+		}
 	}
 }
 ?>
@@ -37,7 +43,10 @@ if (isset($_POST['submit'])) {
 		<?php
 		include_once ("cabecera.php");
 		?>
-
+		<script>
+			
+			
+		</script>
 		<main>
 			
 			<?php
@@ -65,6 +74,7 @@ if (isset($_POST['submit'])) {
 					<label for="pass">Contraseña: </label>
 					<input type="password" name="pass" id="pass" />
 				</div>
+				
 				
 				</fieldset>
 				
