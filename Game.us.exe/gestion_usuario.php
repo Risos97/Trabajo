@@ -57,10 +57,23 @@ function consultarUsuario($conexion, $email, $pass) {
 	}
 
 }
+function consultarEmpleado2($conexion, $dni) {
+
+	try {
+		$stmt = $conexion -> prepare("SELECT COUNT(*) FROM EMPLEADO WHERE DNI = :dni ");
+		$stmt -> bindParam(":dni", $dni);
+		
+		$stmt -> execute();
+		return $stmt -> FetchColumn();
+	} catch(PDOException $e) {
+		echo("error: " . $e -> GetMessage());
+	}
+
+}
 
 function calculaOid($conexion, $email){
 	try{
-		$stmt = $conexion -> prepare("SELECT USUARIO.OID_USUARIO FROM USUARIO WHERE email = :email ");
+		$stmt = $conexion -> prepare("SELECT USUARIO.OID_USUARIO FROM USUARIO WHERE CORREO = :email ");
 		$stmt -> bindParam(":email", $email);
 		$stmt -> execute();
 		return $stmt -> FetchColumn();
@@ -73,7 +86,7 @@ function calculaOid($conexion, $email){
 
 function consultarEmpleado($conexion, $oid_usuario){
 	try{
-		$stmt = $conexion -> prepare("SELECT COUNT(*) FROM EMPLEADO WHERE oid_usuario = :oid_usuario ");
+		$stmt = $conexion -> prepare("SELECT COUNT(*) FROM EMPLEADO WHERE OID_USUARIO = :oid_usuario");
 		$stmt -> bindParam(":oid_usuario", $oid_usuario);
 		$stmt -> execute();
 		return $stmt -> FetchColumn();
@@ -85,6 +98,7 @@ function consultarEmpleado($conexion, $oid_usuario){
 
 function tocha($conexion, $email) {
 	$oid_usuario = calculaOid($conexion, $email);
+	
 	
 	if(consultarEmpleado($conexion, $oid_usuario) == 0)	
 		$resultado = 0;
