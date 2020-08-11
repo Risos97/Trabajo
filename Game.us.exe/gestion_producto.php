@@ -76,7 +76,7 @@ function eliminaProducto($conexion,$idn){
 function actualizar($conexion, $precio, $stock) {
 	try {
 
-		$stmt = $conexion -> prepare("UPDATE PRODUCTO SET  SET PRECIO = :precio, SET STOCK = :stock WHERE IDN = :idn");
+		$stmt = $conexion -> prepare("UPDATE PRODUCTO SET PRECIO = :precio, SET STOCK = :stock WHERE IDN = :idn");
 		$stmt -> bindParam(":idn", $idn);
 		$stmt -> bindParam(":precio", $precio);
 		$stmt -> bindParam(":stock", $stock);

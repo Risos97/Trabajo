@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
 		$login = "error";
 	else
 		$_SESSION['login'] = $email;
-		Header("Location: MenuEmpleado.php");
+		Header("Location: menuEmpleado.php");
 }
 ?>
 
