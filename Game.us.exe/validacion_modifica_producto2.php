@@ -6,8 +6,6 @@ require_once ("gestion_producto.php");
 
 if (isset($_SESSION["producto"])) {
 	$nuevoProducto = $_SESSION["producto"];
-	$precio = $_REQUEST["precio"];
-	$stock = $_REQUEST["stock"];
 	$_SESSION["producto"] = null;
 	$_SESSION["errores"] = null;
 } else {
@@ -31,7 +29,7 @@ $conexion = crearConexionBD();
 		
 		<main>
 		<?php
-		actualizar($conexion,$precio,$stock)
+		actualizar($conexion,$nuevoProducto)
 		?>
 		<!-- MENSAJE DE PRODUCTO modificado -->
 		<h3>Producto actualizado con éxito con los siguientes datos:</h3>
@@ -40,6 +38,7 @@ $conexion = crearConexionBD();
 			<?php
 			echo "<li>Precio: " . $nuevoProducto["precio"] . "</li>";
 			echo "<li>Stock: " . $nuevoProducto["stock"] . "</li>";
+			echo "<li>IDN: " . $nuevoProducto["idn"] . "</li>";
 			?>
 		</ul>
 		

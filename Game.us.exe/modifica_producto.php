@@ -6,7 +6,8 @@
 	
 if (!isset($_SESSION["producto"])) {
 		$producto['idn'] = "";
-		
+		$producto['precio'] = "";
+		$producto['stock'] = "";
 		
 	
 		$_SESSION["producto"] = $producto;
@@ -57,14 +58,21 @@ if (!isset($_SESSION["producto"])) {
   		}
 	?>
 	
-	<form id="altaProducto" method="get" action="modifica_producto2.php"  
+	<form id="altaProducto" method="get" action="validacion_modifica_producto.php"  
 	>
 			<p><i>Introduce el id del producto a modificar </i><em>*</em></p>
 			<fieldset><legend></legend>				
 					<div><label for="idn">IDN:<em>*</em></label>
 					<input id="idn" name="idn" type="text" size="20" value="<?php echo $producto['idn'];?>" required/>
 					</div>
+					<div><label for="precio">Precio<em>*</em></label>
+					<input id="precio" name="precio" type="number" min = "0" value="<?php echo $producto['precio'];?>" required>
+					</div>
 					
+					<div><label for="stock">Stock<em>*</em></label>
+					<input id="stock" name="stock" type="number" min = "0" value="<?php echo $producto['stock'];?>" required>
+					</div>
+				
 					
 				</fieldset>
 			<div><input type="submit" value="Enviar" /></div>

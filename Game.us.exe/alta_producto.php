@@ -86,8 +86,8 @@
 					<input id="stock" name="stock" type="number" min = "0" value="<?php echo $producto['stock'];?>" required>
 					</div>
 				
-					<div><label>Fecha de lanzamiento:</label>
-					<input type="date" id="launch" name="fechaLanzamiento" title="Introduzca la fecha de lanzamiento" value="<?php echo $producto['fechaLanzamiento'];?>" required >
+					<div><label>Fecha de lanzamiento(dd/mm/aa):</label>
+					<input type="text" id="launch" name="fechaLanzamiento" title="Introduzca la fecha de lanzamiento" value="<?php echo $producto['fechaLanzamiento'];?>" required >
 					</div>
 					
 					
@@ -96,7 +96,7 @@
                         <label>Tipo:*</label>
                             <select name="Tipo" title="Indique el tipo del producto" required>
                                 <?php
-                                $producto = array('Videojuego', 'Merchandising', 'Consola');
+                                $producto = array('VIDEOJUEGO', 'Merchandising', 'Consola');
                                 foreach ($producto as $p) {
                                     if($formulario["Tipo"] == $p){
                                         echo("<option value='" . $p . "'  selected>" . $p . "</option>");

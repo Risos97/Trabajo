@@ -11,7 +11,7 @@ function alta_producto($conexion, $producto) {
 		$stmt -> bindParam(":idn", $producto["idn"]);
 		$stmt -> bindParam(":precio", $producto["precio"]);
 		$stmt -> bindParam(":nombre", $producto["nombre"]);
-		$stmt -> bindParam(":descripcion", $descripcion["descripcion"]);
+		$stmt -> bindParam(":descripcion", $producto["descripcion"]);
 		$stmt -> bindParam(":stock", $producto["stock"]);
 		$stmt -> bindParam(":fecha_lanzamiento", $producto["fechaLanzamiento"]);
 		$stmt -> bindParam(":tipo", $producto["tipo"]);
@@ -73,13 +73,13 @@ function eliminaProducto($conexion,$idn){
 	}
 }
 
-function actualizar($conexion, $precio, $stock) {
+function actualizar($conexion, $producto) {
 	try {
 
-		$stmt = $conexion -> prepare("UPDATE PRODUCTO SET PRECIO = :precio, SET STOCK = :stock WHERE IDN = :idn");
-		$stmt -> bindParam(":idn", $idn);
-		$stmt -> bindParam(":precio", $precio);
-		$stmt -> bindParam(":stock", $stock);
+		$stmt = $conexion -> prepare("UPDATE PRODUCTO SET PRECIO = :precio,STOCK = :stock WHERE IDN = :idn");
+		$stmt -> bindParam(":idn", $producto["idn"]);
+		$stmt -> bindParam(":precio", $producto["precio"]);
+		$stmt -> bindParam(":stock", $producto["stock"]);
 		$stmt -> execute();
 		return "";
 

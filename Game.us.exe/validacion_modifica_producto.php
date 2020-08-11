@@ -6,11 +6,11 @@
 		// Recogemos los datos del formulario
 		$nuevoProducto['precio'] = $_REQUEST["precio"];
 		$nuevoProducto['stock'] = $_REQUEST["stock"];
-
+		$nuevoProducto['idn'] = $_REQUEST["idn"];
 		
 		
 		// Guardar la variable local con los datos del formulario en la sesión.
-		$_SESSION["producto"] = $nuevoProducto;
+		$_SESSION["producto"]=$nuevoProducto;
 		$errores = validarDatosProducto($nuevoProducto);
 		
 		if(!empty($errores)){

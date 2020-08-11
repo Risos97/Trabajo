@@ -53,19 +53,19 @@ function validacionFechaJuego(){
     var a = aux.toString();
     var arfJuego = a.split('-');
     var b = parseInt(arfJuego[0]);
-    var año = 2000;
+    var año = 90;
     //document.write(año);
     //document.write(b);
     if(año>b){
         //document.write(fJuego);
         var error= "Una fecha de lanzamiento de un juego tiene que ser posterior a 2000";
-        window.alert("Una fecha de lanzamiento de un juego tiene que ser posterior a 2000");
+        
     }else{
         var error = "";
         b=b-2000;
     }
 
-    document.getElementById("launch")=arfJuego[2]+"/"+arfJuego[1]+"/"+b;
+    
     date.setCustomValidity(error);
 
     return error;
