@@ -66,7 +66,7 @@ if (!isset($_SESSION["producto"])) {
 					<input id="idn" name="idn" type="text" size="20" value="<?php echo $producto['idn'];?>" required/>
 					</div>
 					<div><label for="precio">Precio<em>*</em></label>
-					<input id="precio" name="precio" type="number" min = "0" value="<?php echo $producto['precio'];?>" required>
+					<input id="precio" name="precio" type="text" value="<?php echo $producto['precio'];?>" required>
 					</div>
 					
 					<div><label for="stock">Stock<em>*</em></label>

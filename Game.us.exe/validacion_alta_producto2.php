@@ -46,7 +46,7 @@ $conexion = crearConexionBD();
 			?>
 		</ul>
 		
-		<a href="Princip.php">Ir a la pagina principal</a>
+		<a href="alta_producto.php">Ir a alta Producto</a>
 
 		</main>
 

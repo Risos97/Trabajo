@@ -42,7 +42,7 @@ $conexion = crearConexionBD();
 			?>
 		</ul>
 		
-		<a href="menuEmpleado.php">Ir a la pagina principal</a>
+		<a href="menuEmpleado.php">Ir al menu de empleados</a>
 
 		</main>
 

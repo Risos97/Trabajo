@@ -30,14 +30,16 @@ function validateForm() {
         if (!noValidation){
         	
 			var error1 = validacionFechaJuego();
+			
+			var error2 = validacionPrecioJuego();
         
-        	if((error1.length==0)){
+        	if((error1.length==0) && (error2.length==0)){
         		
         	}else{
-        		window.alert("Una fecha de lanzamiento de un juego tiene que ser posterior a 2000");
+        		window.alert("Una fecha de lanzamiento de un juego tiene que ser posterior a 1983 y el precio mayor a 0");
         		window.location.href = "alta_producto.php";
        	    }	
-			return (error1.length==0);
+			return (error1.length==0) && (error2.length==0); 
 		}
 		else{
 			return true;
@@ -51,18 +53,17 @@ function validacionFechaJuego(){
 
 
     var a = aux.toString();
-    var arfJuego = a.split('-');
-    var b = parseInt(arfJuego[0]);
-    var año = 90;
+    var arfJuego = a.split('/');
+    var b = parseInt(arfJuego[2]);
+    var año = 1983;
     //document.write(año);
     //document.write(b);
     if(año>b){
         //document.write(fJuego);
-        var error= "Una fecha de lanzamiento de un juego tiene que ser posterior a 2000";
+        var error= "Una fecha de lanzamiento de un juego tiene que ser posterior a 1983";
         
     }else{
         var error = "";
-        b=b-2000;
     }
 
     
@@ -71,6 +72,27 @@ function validacionFechaJuego(){
     return error;
 }
 
+function validacionPrecioJuego(){
+    var precio = document.getElementById("precio");
+    var aux = precio.value;
+
+
+
+    var a = parseInt(aux);
+    var cero= 0;
+    if(cero>a){
+        //document.write(fJuego);
+        var error= "Un precio tiene que ser mayor a 0";
+        
+    }else{
+        var error = "";
+    }
+
+    
+    precio.setCustomValidity(error);
+
+    return error;
+}
 
 function validacionContraseña(){
 		var aM=document.getElementById("pass");

@@ -14,7 +14,7 @@ function alta_producto($conexion, $producto) {
 		$stmt -> bindParam(":descripcion", $producto["descripcion"]);
 		$stmt -> bindParam(":stock", $producto["stock"]);
 		$stmt -> bindParam(":fecha_lanzamiento", $producto["fechaLanzamiento"]);
-		$stmt -> bindParam(":tipo", $producto["tipo"]);
+		$stmt -> bindParam(":tipo", $producto["Tipo"]);
 			 
 		$stmt -> execute();
 		$resultado = true;

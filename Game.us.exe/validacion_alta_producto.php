@@ -61,9 +61,8 @@ function validarDatosProducto($conexion, $nuevoProducto){
 		$error[] = "Fecha de producto no valida: Fecha posterior a 2000";
 	} 
 	
-	
 	// Validación del tipo		
-	if($nuevoProducto["tipo"]=="") 
+	if($nuevoProducto["Tipo"]=="") 
 		$errores[] = "<p>El tipo no puede estar vacío</p>";
 	
 }

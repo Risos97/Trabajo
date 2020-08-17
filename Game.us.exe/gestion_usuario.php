@@ -108,11 +108,11 @@ function tocha($conexion, $email) {
 	return $resultado;		
 }
 
-function consultarDatosUsuario($conexion, $email) {
+function consultarDatosUsuario($conexion, $usuario) {
 
     try {
         $stmt = $conexion -> prepare("SELECT * FROM USUARIO WHERE CORREO = :correo");
-        $stmt -> bindParam(":correo", $email);
+        $stmt -> bindParam(":correo", $usuario);
         $stmt -> execute();
         return $stmt -> Fetch();
     } catch(PDOException $e) {
@@ -120,5 +120,7 @@ function consultarDatosUsuario($conexion, $email) {
     }
 
 }
+
+
 
 

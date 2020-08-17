@@ -13,10 +13,11 @@
 
     	cerrarConexionBD($conexion);
 
-    	header("LOCATION:Princip.php");
+    	header("LOCATION:elimina_Producto.php");
+		print("Ha sido eliminado con éxito");
 
 	} else {
-		header("LOCATION:formulario.php");
+		header("LOCATION:menuEmpleado.php");
 	}
 		
 		
