@@ -120,6 +120,19 @@ function consultarDatosUsuario($conexion, $usuario) {
     }
 
 }
+function actualizarU($conexion, $usuario) {
+	try {
+
+		$stmt = $conexion -> prepare("UPDATE USUARIO SET CONTRASEÑA = :contraseña WHERE EMAIL = :email");
+		
+		$stmt -> bindParam(":contraseña", $usuario["contraseña"]);
+		$stmt -> bindParam(":email", $usuario["email"]);
+		return "";
+
+	} catch(PDOException $e) {
+		echo("error: " . $e -> GetMessage());
+	}
+}
 
 
 
