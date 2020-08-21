@@ -36,12 +36,12 @@ if (!isset($_SESSION["producto"])) {
 	<body>
 	<script>
 		
-	}
+	
 	
 	//launch.setCustomValidity(error);
 	
 	//return error;
-}
+
 	</script>	
 
 	<?php

@@ -7,8 +7,6 @@
 		$nuevoProducto['precio'] = $_REQUEST["precio"];
 		$nuevoProducto['stock'] = $_REQUEST["stock"];
 		$nuevoProducto['idn'] = $_REQUEST["idn"];
-		
-		
 		// Guardar la variable local con los datos del formulario en la sesión.
 		$_SESSION["producto"]=$nuevoProducto;
 		$errores = validarDatosProducto($nuevoProducto);
@@ -20,7 +18,7 @@
 			header("LOCATION:validacion_modifica_producto2.php");
 		}
 	}	
-	else // En caso contrario, redireccionamos a altaProducto
+	else // En caso contrario, redireccionamos 
 		Header("Location: modifica_producto.php");	
 	
 	//Validación en el servidor de alta producto

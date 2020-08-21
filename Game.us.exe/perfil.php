@@ -36,7 +36,7 @@ include_once ("cabecera.php");
 <div class="bg-img">
   <div class="container">
     <div class="topnav">
-      <a href="cambiarContraseña.php">Cambiar Contraseña</a>
+      <a href="cambiarPass.php">Cambiar Contraseña</a>
       
       <article class="Usuario">
 

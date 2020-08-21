@@ -4,12 +4,12 @@ session_start();
 require_once ("gestionBD.php");
 require_once ("gestion_usuario.php");
 
-if (isset($_SESSION["usuario"])) {
-	$nuevoUsusario= $_SESSION["usuario"];
-	$_SESSION["usuario"] = null;
+if (isset($_SESSION["formulario"])) {
+	$nuevoUsuario= $_SESSION["formulario"];
+	$_SESSION["formulario"] = null;
 	$_SESSION["errores"] = null;
 } else {
-	Header("Location: cambiarContraseña.php");
+	Header("Location: Perfil.php");
 }
 $conexion = crearConexionBD();
 ?>
@@ -22,22 +22,26 @@ $conexion = crearConexionBD();
 	</head>
 
 	<body>
-
+	<script>
+		
+	</script>
+	
 		<?php
 		include_once ("cabecera.php");
 		?>
 		
 		<main>
 		<?php
-		actualizar($conexion,$nuevoProducto)
+		actualizarU($conexion,$nuevoUsuario)
 		?>
-		<!-- MENSAJE DE PRODUCTO modificado -->
-		<h3>Producto actualizado con éxito con los siguientes datos:</h3>
+		<!-- MENSAJE DE Usuario modificado -->
+		<h3>Usuario actualizado con éxito con los siguientes datos:</h3>
 
 		<ul>
 			<?php
-			echo "<li>Email: " . $nuevoProducto["email"] . "</li>";
-			echo "<li>Pass: " . $nuevoProducto["pass"] . "</li>";
+			echo "<li>Email: " . $nuevoUsuario["email"] . "</li>";
+			echo "<li>Pass: " . $nuevoUsuario["pass"] . "</li>";
+			echo "<li>Pass: " . $nuevoUsuario["nickname"] . "</li>";
 			
 			?>
 		</ul>

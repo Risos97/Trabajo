@@ -123,10 +123,11 @@ function consultarDatosUsuario($conexion, $usuario) {
 function actualizarU($conexion, $usuario) {
 	try {
 
-		$stmt = $conexion -> prepare("UPDATE USUARIO SET CONTRASEÑA = :contraseña WHERE EMAIL = :email");
-		
-		$stmt -> bindParam(":contraseña", $usuario["contraseña"]);
-		$stmt -> bindParam(":email", $usuario["email"]);
+		$stmt = $conexion -> prepare("UPDATE USUARIO SET CONTRASEÑA = :contraseña,NICKNAME = :nickname WHERE CORREO = :correo");
+		$stmt -> bindParam(":contraseña", $usuario["pass"]);
+		$stmt -> bindParam(":correo", $usuario["email"]);
+		$stmt -> bindParam(":nickname", $usuario["nickname"]);
+		$stmt -> execute();
 		return "";
 
 	} catch(PDOException $e) {
