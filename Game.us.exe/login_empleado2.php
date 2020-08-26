@@ -1,9 +1,6 @@
 <?php
 session_start();
 
-if(isset($_SESSION['login_empleado'])){
-	
-}
 
 include_once ("gestionBD.php"); 
 include_once ("gestion_usuario.php");
@@ -37,6 +34,9 @@ if (isset($_POST['submit'])) {
 
 		<?php
 		include_once ("cabecera.php");
+		
+		include_once ("estilo.css");
+	
 		?>
 		<script>
 			
@@ -52,7 +52,7 @@ if (isset($_POST['submit'])) {
 			}
 			?>
 
-			<form action="login_empleado2.php" method="post">
+			<form id="login" action="login_empleado2.php" method="post">
 				
 				<fieldset>
 					
@@ -72,16 +72,17 @@ if (isset($_POST['submit'])) {
 				
 				<input class="boton_fo" type="submit" name="submit" value="Iniciar sesion" />
 				
+				<p>
+				¿No eres miembro? <a href="formulario.php">Registrarse</a>
+				</p>
 			</form>
 
-			<p>
-				¿No eres miembro? <a href="formulario.php">Registrarse</a>
-			</p>
+			
 			
 		</main>
 
 		<?php
-		include_once ("pie.php");
+		//include_once ("pie.php");
 		?>
 		
 	</body>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 	include_once ("estilo.css");
+	
 ?>
 <html>
 <head>
@@ -13,7 +14,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </head>
 <body>
 
+<?php
+	
+	include_once ("cabecera.php");
+?>
 <h2>Games.us.exe</h2>
+<h3>Tu catálogo online de videojuegos</h3>
 <div class="bg-img">
   <div class="container">
     <div class="topnav">

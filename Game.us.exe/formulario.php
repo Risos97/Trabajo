@@ -25,6 +25,11 @@
 	
 ?>
 
+<?php
+	include_once ("estilo.css");
+	
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -70,19 +75,19 @@
 		<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
 		<fieldset><legend>Datos Usuario</legend>
 					<div><label for="nombre">Nombre:<em>*</em></label>
-					<input id="nombre" name="nombre" type="text" size="40" value="<?php echo $formulario['nombre'];?>" required/>
+					<input id="inp" name="nombre" type="text" size="40" value="<?php echo $formulario['nombre'];?>" required/>
 					</div>
 					
-					<div></div><label for="dirección">Dirección:<em>*</em></label>
-					<input id="dirección" name="dirección" type="text" size="80" value="<?php echo $formulario['dirección'];?>" required/>
+					<div></div><label for="dirección">Dirección:<em></em></label>
+					<input id="dirección" name="dirección" type="text" size="40" "<?php echo $formulario['dirección'];?>" required/>
 					</div>
 					
 					<div><label for="móvil">Móvil<em>*</em></label>
-					<input id="móvil" name="móvil" type="text" placeholder="123456789" pattern="^[0-9]{9}" title="Nueve dígitos" value="<?php echo $formulario['móvil'];?>" required/>
+					<input id="móvil" name="móvil" type="text" size="40" placeholder="123456789" pattern="^[0-9]{9}" title="Nueve dígitos" value="<?php echo $formulario['móvil'];?>" required/>
 					</div>
 				
 					<div><label for="email">Email:<em>*</em></label>
-					<input id="email" name="email"  type="email" placeholder="usuario@dominio.extension" value="<?php echo $formulario['email'];?>" required/>
+					<input id="email" name="email"  type="email" size="40"  placeholder="usuario@dominio.extension" value="<?php echo $formulario['email'];?>" required/>
 					</div>
 				
 					<div><label for="nick">Nickname:<em>*</em></label>
@@ -90,12 +95,12 @@
 					</div>
 				
 					<div><label for="pass">Password:<em>*</em></label>
-					<input type="password"  name="pass" id="pass" placeholder="Mínimo 8 caracteres entre letras y dígitos" minlength="8" maxlength="20" size="20" value="<?php echo($formulario['pass']); ?>" 
+					<input type="password"  name="pass" id="pass" placeholder="Mínimo 8 caracteres entre letras y dígitos" minlength="8" maxlength="20" size="40" value="<?php echo($formulario['pass']); ?>" 
 					required/>
 					</div>
 				
 					<div><label for="confirmpass">Confirmar Password: </label>
-					<input type="password" name="confirmpass" id="confirmpass" placeholder="Confirmación de contraseña" minlength="8" maxlength="20" size="20" 
+					<input type="password" name="confirmpass" id="confirmpass" placeholder="Confirmación de contraseña" minlength="8" maxlength="20" size="40" 
 					 required/>
 					</div>
 			</fieldset>
@@ -103,7 +108,7 @@
 	</form>
 	
 	<?php
-		include_once("pie.php");
+		//include_once("pie.php");
 		
 	?>
 	<script type="text/javascript" src="Js/validaciones.js"> </script>

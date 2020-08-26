@@ -31,16 +31,21 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <?php
 
 include_once ("cabecera.php");
+include_once ("estilo.css");
 ?>
 <h2>Games.us.exe</h2>
 <div class="bg-img">
-  <div class="container">
+  <div class="perfil2">
     <div class="topnav">
       <a href="cambiarPass.php">Cambiar Contraseña</a>
+      <a href="Borra_Usuario.php">Borrar Usuario</a>
+      <a href="logout.php">Cerrar Sesión</a>
+      <a href="consulta_producto.php">Productos</a>
+      <a href="Princip.php">Página principal</a>
       
       <article class="Usuario">
 
-		<form method="post" >
+		<form  method="post" >
 
 				<div class="datos_usuario">
 
@@ -65,36 +70,33 @@ include_once ("cabecera.php");
 						type="hidden" value="<?php echo $datos["NICKNAME"]; ?>"/>
 						
 
-				
+				 </div>
+			</div>
+ 		</div>
 
 				<?php  ?>
 
 						<!-- mostrando título -->
-					<div class="Datos Usuario"><b>Datos de Usuario:</b>
-						
+					
+					<div id="perfil">
+						<b>Datos de Usuario:</b>
+						<br></br>
 						
 						<input id="NOMBRE" name="NOMBRE" type="hidden" value="<?php echo $datos["NOMBRE"]; ?>"/>
 
-						<div ><?php echo $datos["NOMBRE"]; ?></div>
+						<div > <b>Nombre: </b> <?php echo $datos["NOMBRE"]; ?></div>
 
-						<div > <?php echo $datos["DIRECCION"]; ?></div>
+						<div > <b>Dirección: </b> <?php echo $datos["DIRECCION"]; ?></div>
 						
-						<div><?php echo $datos["MOVIL"]; ?></div>
+						<div > <b>Móvil: </b> <?php echo $datos["MOVIL"]; ?></div>
 						
-						<div > <?php echo $datos["CORREO"]; ?></div>
+						<div > <b>Correo:</b> <?php echo $datos["CORREO"]; ?></div>
 						
-						<div > <?php echo $datos["NICKNAME"]; ?></div>
+						<div > <b>Nickname: </b><?php echo $datos["NICKNAME"]; ?></div>
 						
 					</div>
 				<?php  ?>
 
-				</div>
-      
-    
-  </div>
-</div>
-<?php
-
-include_once ("pie.php");
-?>
+				
+     
 </body>

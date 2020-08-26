@@ -135,6 +135,17 @@ function actualizarU($conexion, $usuario) {
 	}
 }
 
+function BorraUsuario($conexion, $correo) {
 
+    try {
+        $stmt = $conexion -> prepare("DELETE FROM USUARIO WHERE CORREO = :correo");
+        $stmt -> bindParam(":correo", $correo);
+        $stmt -> execute();
+		
+    } catch(PDOException $e) {
+        echo("error: " . $e -> GetMessage());
+    }
+
+}
 
 
