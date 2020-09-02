@@ -5,7 +5,7 @@
 	
 	if (isset($_SESSION["producto"])) {
 		// Recogemos los datos del formulario
-		$idn['idn'] = $_REQUEST["idn"];
+		$idn = $_SESSION["producto"];
 		
 		$conexion = crearConexionBD();
 
@@ -13,7 +13,7 @@
 
     	cerrarConexionBD($conexion);
 
-    	header("LOCATION:elimina_Producto.php");
+    	header("LOCATION:consulta_producto.php");
 		print("Ha sido eliminado con éxito");
 
 	} else {

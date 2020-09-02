@@ -1,7 +1,7 @@
 <?php	
 	session_start();
 	
-	if (isset($_REQUEST["OID_PRODUCTO"])){
+	if (isset($_REQUEST["IDN"])){
 		$producto["IDN"] = $_REQUEST["IDN"];
 		$producto["PRECIO"] = $_REQUEST["PRECIO"];
 		$producto["NOMBRE"] = $_REQUEST["NOMBRE"];
@@ -12,9 +12,9 @@
 		
 		$_SESSION["producto"] = $producto;
 			
-		if (isset($_REQUEST["editar"])) Header("Location: consulta_productos.php"); 
-		else if (isset($_REQUEST["grabar"])) Header("Location: accion_modificar_producto.php");
-		else /* if (isset($_REQUEST["borrar"])) */ Header("Location: accion_borrar_producto.php"); 
+		if (isset($_REQUEST["borrar"])) Header("Location: validacion_elimina.php"); 
+		else if (isset($_REQUEST["modificar"])) Header("Location: modifica_producto.php");
+		
 	}
 	else 
 		Header("Location: consulta_productos.php");

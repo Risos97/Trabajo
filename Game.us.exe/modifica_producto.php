@@ -16,6 +16,10 @@ if (!isset($_SESSION["producto"])) {
 	else
 		$producto = $_SESSION["producto"];
 	
+		$aux['idn'] = "";
+		$aux['precio'] = "";
+		$aux['stock'] = "";
+		$_SESSION["aux"] = $aux;
 	if (isset($_SESSION["errores"])){
 		$errores = $_SESSION["errores"];
 		unset($_SESSION["errores"]);
@@ -63,14 +67,16 @@ if (!isset($_SESSION["producto"])) {
 			<p><i>Introduce el id del producto a modificar </i><em>*</em></p>
 			<fieldset><legend></legend>				
 					<div><label for="idn">IDN:<em>*</em></label>
-					<input id="idn" name="idn" type="text" size="20" value="<?php echo $producto['idn'];?>" required/>
+					<input id="idn" name="idn" type="text" size="20" value="<?php echo $producto['IDN'] ?>" required/>
 					</div>
+					<?php  $aux['idn']=$producto['IDN']  ?>
+					
 					<div><label for="precio">Precio<em>*</em></label>
-					<input id="precio" name="precio" type="text" value="<?php echo $producto['precio'];?>" required>
+					<input id="precio" name="precio" type="text" value="<?php echo $aux['precio'];?>" required>
 					</div>
 					
 					<div><label for="stock">Stock<em>*</em></label>
-					<input id="stock" name="stock" type="number" min = "0" value="<?php echo $producto['stock'];?>" required>
+					<input id="stock" name="stock" type="number" min = "0" value="<?php echo $aux['stock'];?>" required>
 					</div>
 				
 					

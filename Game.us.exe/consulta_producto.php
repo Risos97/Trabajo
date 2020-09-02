@@ -140,8 +140,8 @@ include_once ("cabecera.php");
 
 					<input id="IDN" name="IDN"
 
-						type="hidden" value="<?php echo $fila["IDN"]; ?>"/>
-
+						type="hidden" value="<?php echo $fila["IDN"]; $_SESSION["producto"]=$fila["IDN"];?>"/>
+						
 					<input id="PRECIO" name="PRECIO"
 
 						type="hidden" value="<?php echo $fila["PRECIO"]; ?>"/>
@@ -166,17 +166,9 @@ include_once ("cabecera.php");
 
 						type="hidden" value="<?php echo $fila["TIPO"]; ?>"/>
 
-				<?php
-
-					if (isset($producto) and ($producto["IDN"] == $fila["IDN"])) { ?>
-
-						<!-- Editando título -->
-
-						<h3><input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila["NOMBRE"]; ?>"/>	</h3>
-
-						<h4><?php echo $fila["DESCRIPCION"] . " " . $fila["PRECIO"]; ?></h4>
-
-				<?php }	else { ?>
+				
+			
+				
 
 						<!-- mostrando título -->
 
@@ -185,10 +177,24 @@ include_once ("cabecera.php");
 						<div class="nombre"><b><?php echo $fila["NOMBRE"]; ?></b></div>
 
 						<div class="infor"> <em><?php echo $fila["DESCRIPCION"] . " " . $fila["PRECIO"]; ?></em></div>
+						
+     					</div> 
 
-				<?php } ?>
+				
 
 				</div>
+				
+				<button id="borrar" name="borrar" type="submit" class="borrar_fila">
+
+							<img src="images/BORRAR.png" class="borrar_fila" alt="Borrar producto">
+
+						</button>
+				<button id="modificar" name="modificar" type="submit" class="modificar_fila">
+
+							<img src="images/LAPIZ.png" class="modificar_fila" alt="Modificar producto">
+
+						</button>
+
 
 
 				<!-- 
@@ -220,7 +226,10 @@ include_once ("cabecera.php");
 
 				</div>
 				-->
+				
 			</div>
+			
+
 
 		</form>
 

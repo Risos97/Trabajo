@@ -5,10 +5,8 @@
 
 	
 if (!isset($_SESSION["producto"])) {
-		$producto['precio'] = "";
-		$producto['stock'] = "";
 		
-		$_SESSION["producto"] = $producto;
+	
 	}
 	// Si ya existían valores, los cogemos para inicializar el formulario
 	else

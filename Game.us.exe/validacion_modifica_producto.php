@@ -2,7 +2,7 @@
 	session_start();
 	
 	
-	if (isset($_SESSION["producto"])) {
+	if (isset($_SESSION["aux"])) {
 		// Recogemos los datos del formulario
 		$nuevoProducto['precio'] = $_REQUEST["precio"];
 		$nuevoProducto['stock'] = $_REQUEST["stock"];
