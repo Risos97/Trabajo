@@ -17,10 +17,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <div class="bg-img">
   <div class="container">
     <div class="topnav">
-      <a href="elimina_producto.php">Elimina</a>
       <a href="consulta_producto.php">Producto</a>
-      <a href="modifica_producto.php" >Modifica</a>
       <a href="alta_producto.php">A-Producto</a>
+      <a href="alta_empleado.php">A-Empleado</a>
       
       
       
