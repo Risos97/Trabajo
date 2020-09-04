@@ -147,5 +147,34 @@ function BorraUsuario($conexion, $correo) {
     }
 
 }
+function alta_empleado($conexion, $empleado) {
+	$resultado = false; 
+	
+	if (tocha($conexion, $empleado["email"]) == 0) {
+		
+		$oid=calculaOid($conexion,$empleado['email']);
+		try {
+			
+			$stmt = $conexion -> prepare("INSERT INTO EMPLEADO(OID_USUARIO,DNI,PUESTO,SALARIO) VALUES(:oid,:dni,:puesto,:salario)");
+			$stmt -> bindParam(":oid", $oid);
+			$stmt -> bindParam(":dni", $empleado["dni"]);
+			$stmt -> bindParam(":puesto", $empleado["puesto"]);
+			$stmt -> bindParam(":salario", $empleado["salario"]);
+			
+			 
+			 
+			$stmt -> execute();
+			$resultado = true;
+			
+		} catch(PDOException $e) {
+			$resultado = false;
+			echo("error: " . $e -> GetMessage());
+		}
+	
+	}
+	
+	return $resultado;
+}
+
 
 
