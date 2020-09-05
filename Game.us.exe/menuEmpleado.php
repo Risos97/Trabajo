@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-	//include_once ("estilo.css");
+	include_once ("estilo.css");
 ?>
 <html>
 <head>
@@ -13,14 +13,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </head>
 <body>
 
-<h2>Games.us.exe/Empleado</h2>
+<h4>Games.us.exe/Empleado</h4>
 <div class="bg-img">
   <div class="container">
     <div class="topnav">
-      <a href="elimina_producto.php">Elimina</a>
       <a href="consulta_producto.php">Producto</a>
-      <a href="modifica_producto.php" >Modifica</a>
       <a href="alta_producto.php">A-Producto</a>
+      <a href="alta_empleado.php">A-Empleado</a>
       
       
       

@@ -37,7 +37,7 @@ include_once ("estilo.css");
 <div class="bg-img">
   <div class="perfil2">
     <div class="topnav">
-      <a href="cambiarPass.php">Cambiar Contraseña</a>
+      <a href="modificaUsuario.php">Modifica Usuario</a>
       <a href="Borra_Usuario.php">Borrar Usuario</a>
       <a href="logout.php">Cerrar Sesión</a>
       <a href="consulta_producto.php">Productos</a>

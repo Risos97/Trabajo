@@ -27,20 +27,6 @@
 		Header("Location: formulario.php");	
 	}	
 	
-	// Validamos el formulario en servidor
-	//$conexion = crearConexionBD(); 
-	//$errores = validarDatosUsuario($conexion, $nuevoUsuario);
-	//cerrarConexionBD($conexion);
-	
-	// Comprobamos los errores
-	 if (count($errores)>0) {
-		// Guardo en la sesión los mensajes de error y volvemos al formulario
-	$_SESSION["errores"] = $errores;
-		
-		Header('Location: formulario.php');
-	 } else
-		Header('Location: validacion_alta_usuario2.php');
-	//Validación en el servidor de alta usuario
 	
 function validarDatosUsuario($nuevoUsuario){
 	$errores=array();
