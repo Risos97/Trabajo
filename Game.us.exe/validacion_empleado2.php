@@ -21,7 +21,7 @@ $oid=calculaOid($conexion,$nuevoUsuario['email']);
 <html lang="es">
 	<head>
 		<meta charset="utf-8">
-		<title>Testeo: Alta de Usuario</title>
+		<title>Testeo: Alta de Empleado</title>
 	</head>
 
 	<body>
@@ -37,7 +37,7 @@ $oid=calculaOid($conexion,$nuevoUsuario['email']);
 			
 		?>
 		
-		<!-- MENSAJE DE BIENVENIDO AL USUARIO -->
+		<!-- MENSAJE DE BIENVENIDO AL Empleado -->
 		<h3>Empleado dado de alta con éxito con los siguientes datos:</h3>
 
 		<ul>
@@ -52,7 +52,7 @@ $oid=calculaOid($conexion,$nuevoUsuario['email']);
 		<a href="menuEmpleado.php">Ir al menú de empleado</a>
 
 		<?php } else { ?>
-		<!-- MENSAJE DE QUE USUARIO YA EXISTE -->
+		<!-- MENSAJE DE QUE EMPLEADO YA EXISTE -->
 		<h3>Ya existe un empleado registrado con sus datos</h3>
 		<ul>
 			<?php

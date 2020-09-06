@@ -92,7 +92,7 @@ include_once ("cabecera.php");
 
 			<?php }	else { ?>
 
-						<a href="consulta_producto.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
+						<a href="consulta_producto_usuario.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
 
 			<?php } ?>
 
@@ -100,7 +100,7 @@ include_once ("cabecera.php");
 
 
 
-		<form method="get" action="consulta_producto.php">
+		<form method="get" action="consulta_producto_usuario.php">
 
 			<input id="PAG_NUM" name="PAG_NUM" type="hidden" value="<?php echo $pagina_seleccionada?>"/>
 
@@ -176,29 +176,12 @@ include_once ("cabecera.php");
 
 						<div class="nombre"><b><?php echo $fila["NOMBRE"]; ?></b></div>
 
-						<div class="infor"> <em><?php echo $fila["DESCRIPCION"] . " " . $fila["PRECIO"]."€"; ?></em></div>
+						<div class="infor"> <em><?php echo $fila["DESCRIPCION"] . " " . $fila["PRECIO"] ."€";  ?></em></div>
 						
      					</div> 
 
-				
-
 				</div>
-				
-				<button id="borrar" name="borrar" type="submit" class="borrar_fila">
-
-							<img src="images/BORRAR.png" class="borrar_fila" alt="Borrar producto">
-
-						</button>
-				<button id="modificar" name="modificar" type="submit" class="modificar_fila">
-
-							<img src="images/LAPIZ.png" class="modificar_fila" alt="Modificar producto">
-
-						</button>
-				
-			</div>
-			
-
-
+									
 		</form>
 
 	</article>

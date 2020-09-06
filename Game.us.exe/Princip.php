@@ -24,7 +24,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <div class="container">
     <div class="topnav">
       <a href="formulario.php">Registro</a>
-      <a href="consulta_producto.php">Producto</a>
+      <a href="consulta_producto_usuario.php">Producto</a>
       <a href="login_empleado.php" >Login Usuario</a>
       <a href="login_empleado2.php" >Login Empleado</a>
       <a href="perfil.php">Perfil</a>

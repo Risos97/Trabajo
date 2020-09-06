@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-
+include_once ("estilo.css");
 include_once ("gestionBD.php"); 
 include_once ("gestion_usuario.php");
 
@@ -12,22 +12,16 @@ if (isset($_POST['submit'])) {
 	$conexion = crearConexionBD();
 	$num_usuarios = consultarUsuario($conexion, $email, $pass);
 	cerrarConexionBD($conexion);
-	print ($empleado);
 	
 	if ($num_usuarios == 0)
 		$login = "error";
 	else
-			$_SESSION['login'] = $email;
-			Header("Location: Princip.php"); 
+		$_SESSION['login'] = $email;
+		Header("Location: Princip.php"); 
 		
 	
 }
 ?>
-<?php
-	include_once ("estilo.css");
-	
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -51,6 +45,7 @@ if (isset($_POST['submit'])) {
 				echo "<div class=\"error\">";
 				echo "Error en la contraseña o no existe el usuario.";
 				echo "</div>";
+				Header("Location:mensaje_error.php");
 			}
 			?>
 
@@ -80,6 +75,9 @@ if (isset($_POST['submit'])) {
 				<p>
 				¿No eres miembro? <a href="formulario.php">Registrarse</a>
 			    </p>
+			    <p>
+			    ¿Se te ha olvidado la contraseña? <a href="passForgot.php">Recuperar contraseña</a>
+			    <p>
 			</form>
 
 			
