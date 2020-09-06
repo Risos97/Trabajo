@@ -2,7 +2,7 @@
 	session_start();
 	
 	
-	if (isset($_SESSION["producto"])) {
+	if (isset($_SESSION["product"])) {
 		// Recogemos los datos del formulario
 		$nuevoProducto['idn'] = $_REQUEST["idn"];
 		$nuevoProducto['precio'] = $_REQUEST["precio"];
@@ -14,7 +14,7 @@
 		
 		
 		// Guardar la variable local con los datos del formulario en la sesión.
-		$_SESSION["producto"] = $nuevoProducto;
+		$_SESSION["product"] = $nuevoProducto;
 		$errores = validarDatosProducto($nuevoProducto);
 		
 		if(!empty($errores)){

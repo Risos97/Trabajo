@@ -3,10 +3,11 @@ session_start();
 
 require_once ("gestionBD.php");
 require_once ("gestion_producto.php");
+include_once ("estilo.css");
 
-if (isset($_SESSION["producto"])) {
-	$nuevoProducto = $_SESSION["producto"];
-	$_SESSION["producto"] = null;
+if (isset($_SESSION["product"])) {
+	$nuevoProducto = $_SESSION["product"];
+	$_SESSION["product"] = null;
 	$_SESSION["errores"] = null;
 } else {
 	Header("Location: alta_producto.php");
@@ -27,12 +28,12 @@ $conexion = crearConexionBD();
 		include_once ("cabecera.php");
 		?>
 		
-		<main>
+		<main id="va2">
 		<?php
 		alta_producto($conexion,$nuevoProducto)
 		?>
 		<!-- MENSAJE DE PRODUCTO SUBIDO -->
-		<h3>Producto subido con éxito con los siguientes datos:</h3>
+		<h5>Producto subido con éxito con los siguientes datos:</h5>
 
 		<ul>
 			<?php
@@ -50,9 +51,6 @@ $conexion = crearConexionBD();
 
 		</main>
 
-		<?php
-		include_once ("pie.php");
-		?>
 
 		<?php
 		cerrarConexionBD($conexion);

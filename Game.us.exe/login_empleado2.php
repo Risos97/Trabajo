@@ -7,19 +7,21 @@ include_once ("gestion_usuario.php");
 
 if (isset($_POST['submit'])) {
 	$dni = $_POST['dni'];
+	$email = $_SESSION['login'];
 	
 
 	$conexion = crearConexionBD();
 	$num_usuarios = consultarEmpleado2($conexion, $dni);
 	$empleado = tocha($conexion, $email); 
 	cerrarConexionBD($conexion);
-	print ($empleado);
 	
-	if ($num_usuarios == 0)
-		$login = "error";
-	else
+	if ($num_usuarios == 1 && $empleado == 1){
 		$_SESSION['empleado'] = $dni;
 		Header("Location: menuEmpleado.php");
+	}
+	else
+		$login = "error";
+		
 }
 ?>
 
@@ -47,7 +49,7 @@ if (isset($_POST['submit'])) {
 			<?php
 			if (isset($login)) {
 				echo "<div class=\"error\">";
-				echo "Error en la contraseña o no existe el usuario.";
+				echo "Error en el dni o el dni introducido no es del usuario logeado.";
 				echo "</div>";
 			}
 			?>

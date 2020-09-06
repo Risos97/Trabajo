@@ -57,6 +57,18 @@ function consultarUsuario($conexion, $email, $pass) {
 	}
 
 }
+function consultarUsuario2($conexion, $email) {
+
+	try {
+		$stmt = $conexion -> prepare("SELECT COUNT(*) FROM USUARIO WHERE CORREO = :correo ");
+		$stmt -> bindParam(":correo", $email);
+		$stmt -> execute();
+		return $stmt -> FetchColumn();
+	} catch(PDOException $e) {
+		echo("error: " . $e -> GetMessage());
+	}
+
+}
 function consultarEmpleado2($conexion, $dni) {
 
 	try {
@@ -135,6 +147,21 @@ function actualizarU($conexion, $usuario) {
 	}
 }
 
+function actualizarEmpleado($conexion, $usuario) {
+	try {
+
+		$stmt = $conexion -> prepare("UPDATE EMPLEADO SET SALARIO = :salario,PUESTO = :puesto WHERE DNI = :dni");
+		$stmt -> bindParam(":salario", $usuario["salario"]);
+		$stmt -> bindParam(":puesto", $usuario["puesto"]);
+		$stmt -> bindParam(":dni", $usuario["dni"]);
+		$stmt -> execute();
+		return "";
+
+	} catch(PDOException $e) {
+		echo("error: " . $e -> GetMessage());
+	}
+}
+
 function BorraUsuario($conexion, $correo) {
 
     try {
@@ -150,7 +177,7 @@ function BorraUsuario($conexion, $correo) {
 function alta_empleado($conexion, $empleado) {
 	$resultado = false; 
 	
-	if (tocha($conexion, $empleado["email"]) == 0) {
+	if (tocha($conexion, $empleado["email"]) == 0 && consultarUsuario2($conexion, $empleado['email'])==1) {
 		
 		$oid=calculaOid($conexion,$empleado['email']);
 		try {

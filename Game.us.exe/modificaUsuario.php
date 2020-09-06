@@ -38,15 +38,6 @@ if (!isset($_SESSION["login"])) {
 
 
 	<body>
-	<script>
-		
-	
-	
-	//launch.setCustomValidity(error);
-	
-	//return error;
-
-	</script>	
 
 	<?php
 		include_once("cabecera.php");
@@ -62,17 +53,17 @@ if (!isset($_SESSION["login"])) {
   		}
 	?>
 	
-	<form id="formulario" method="post" action="validacion_modifica_usuario.php"  
+	<form id="formulario2" method="post" action="validacion_modifica_usuario.php"  
 	>
 			<p><i>Introduce el email del usuario a modificar </i><em>*</em></p>
-			<fieldset><legend></legend>				
+			<fieldset>			
 					<div><label for="email">Email:<em>*</em></label>
 					<input id="email" name="email"  type="email" size="40"  placeholder="usuario@dominio.extension" value="<?php echo $usuario;?>" required/>
 					</div>
 					<?php  $aux['email']=$usuario  ?>
 					
 					<div><label for="nickname">Nickname<em>*</em></label>
-					<input id="nickname" name="nickname" type="text" value="<?php echo $aux['nickname'];?>" required>
+					<input id="nickname" class="nicknameMod" name="nickname" type="text" value="<?php echo $aux['nickname'];?>" required>
 					</div>
 					
 					<div><label for="pass">Password:<em>*</em></label>
@@ -87,7 +78,6 @@ if (!isset($_SESSION["login"])) {
 		
 		<?php
 	
-		include_once("pie.php");
 		cerrarConexionBD($conexion);
 		?>
 		

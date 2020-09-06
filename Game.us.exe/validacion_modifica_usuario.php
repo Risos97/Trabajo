@@ -21,7 +21,6 @@
 	else // En caso contrario, redireccionamos 
 		Header("Location: modifica_usuario.php");	
 	
-	//Validación en el servidor de alta producto
 	
 function validarDatosUsuario($conexion, $nuevoUsuario){
 	$errores=array();

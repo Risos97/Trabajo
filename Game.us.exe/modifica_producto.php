@@ -86,7 +86,6 @@ if (!isset($_SESSION["producto"])) {
 		
 		<?php
 	
-		include_once("pie.php");
 		cerrarConexionBD($conexion);
 		?>
 		

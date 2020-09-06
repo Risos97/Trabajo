@@ -4,8 +4,9 @@
 	require_once ("gestionBD.php");
 	
     if (isset($_SESSION['login'])){
+  		
 		$conexion = crearConexionBD();
-		
+		$email = $_SESSION['login'];
 		BorraUsuario($conexion,$email);
 		
 		cerrarConexionBD($conexion);
@@ -13,6 +14,6 @@
 	
 	}
 
-    header("Location: login_empleado.php");
+    header("Location: logout.php");
     
 ?>

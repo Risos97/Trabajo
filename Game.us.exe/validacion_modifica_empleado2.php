@@ -3,6 +3,7 @@ session_start();
 
 require_once ("gestionBD.php");
 require_once ("gestion_usuario.php");
+include_once ("estilo.css");
 
 if (isset($_SESSION["empleado"])) {
 	$nuevoEmpleado = $_SESSION["empleado"];
@@ -18,10 +19,10 @@ $conexion = crearConexionBD();
 <html lang="es">
 	<head>
 		<meta charset="utf-8">
-		<title>Testeo: Modificación de Empleado/title>
+		<title>Testeo: Modificación de Empleado </title>
 	</head>
 
-	<body>
+	<body id="va2">
 
 		<?php
 		include_once ("cabecera.php");
@@ -32,7 +33,7 @@ $conexion = crearConexionBD();
 		actualizarEmpleado($conexion,$nuevoEmpleado)
 		?>
 		<!-- MENSAJE DE EMPLEADO modificado -->
-		<h3>Empleado actualizado con éxito con los siguientes datos:</h3>
+		<h5>Empleado actualizado con éxito con los siguientes datos:</h5>
 
 		<ul>
 			<?php

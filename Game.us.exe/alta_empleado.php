@@ -61,16 +61,10 @@
 	
 	?>
 	
-	<script>
-	//////window.alert("jekdcwsc");
- 	
-	</script>
+
 	
-	
-	<form id="altaUsuario" method="get" action="validacion_alta_empleado.php" onsubmit="return validateForm()">
-		
-		<!--novalidate-> 
-		<!--onsubmit="return validateForm()"-->     
+	<form id="altaUsuario" method="post" action="validacion_alta_empleado.php" onsubmit="return validateForm()">
+		 
 		<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
 		<fieldset><legend>Datos Usuario</legend>
 					<div><label for="dni">DNI:<em>*</em></label>
@@ -84,9 +78,9 @@
 					</div>
 					<div>
                         <label>Puesto:*</label>
-                            <select name="puesto" title="Indique el puesto del empleado" required>
+                            <select id="sel"  name="puesto" title="Indique el puesto del empleado" required>
                                 <?php
-                                $formulario = array('DEPENDIENTE', 'ENCARGADO', 'WEB DESIGNER');
+                                $formulario = array('DEPENDIENTE', 'JEFE', 'GESTOR DE ALMACEN');
                                 foreach ($formulario as $p) {
                                     if($aux["puesto"] == $p){
                                         echo("<option value='" . $p . "'  selected>" . $p . "</option>");
@@ -103,10 +97,6 @@
 			<div><input type="submit" value="Enviar" /></div>
 	</form>
 	
-	<?php
-		//include_once("pie.php");
-		
-	?>
 	<script type="text/javascript" src="Js/validaciones.js"> </script>
 	</body>
 </html>

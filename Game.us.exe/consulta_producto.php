@@ -4,6 +4,7 @@ session_start();
 require_once ("gestionBD.php");
 require_once ("gestion_producto.php");
 require_once ("consulta_paginacion.php");
+include_once ("estilo.css");
 
 if (!isset($_SESSION['login']))
 	Header("Location: login_empleado.php");
@@ -67,7 +68,7 @@ else {
   <title>Gestión de Productos: Lista de Productos</title>
 </head>
 
-<body>
+<body id="cp">
 
 <?php
 
@@ -174,8 +175,19 @@ include_once ("cabecera.php");
 
 						<input id="NOMBRE" name="NOMBRE" type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
 
-						<div class="nombre"><b><?php echo $fila["NOMBRE"]; ?></b></div>
+						<div id="ncp" class="nombre"><b><?php echo $fila["NOMBRE"]; ?></b></div>
 
+						<button id="borrar" name="borrar" type="submit" class="borrar_fila">
+
+							<img src="images/BORRAR.png" class="borrar_fila" alt="Borrar producto">
+
+						</button>
+						<button id="modificar" name="modificar" type="submit" class="modificar_fila">
+
+							<img src="images/LAPIZ.png" class="modificar_fila" alt="Modificar producto">
+
+						</button>
+						
 						<div class="infor"> <em><?php echo $fila["DESCRIPCION"] . " " . $fila["PRECIO"]."€"; ?></em></div>
 						
      					</div> 
@@ -183,21 +195,6 @@ include_once ("cabecera.php");
 				
 
 				</div>
-				
-				<button id="borrar" name="borrar" type="submit" class="borrar_fila">
-
-							<img src="images/BORRAR.png" class="borrar_fila" alt="Borrar producto">
-
-						</button>
-				<button id="modificar" name="modificar" type="submit" class="modificar_fila">
-
-							<img src="images/LAPIZ.png" class="modificar_fila" alt="Modificar producto">
-
-						</button>
-				
-			</div>
-			
-
 
 		</form>
 
@@ -211,10 +208,6 @@ include_once ("cabecera.php");
 
 
 
-<?php
-
-include_once ("pie.php");
-?>
 
 </body>
 

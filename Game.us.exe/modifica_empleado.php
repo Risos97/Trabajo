@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	require_once("gestionBD.php");
-	//include_once ("estilo.css"); 
+	include_once ("estilo.css"); 
 
 	
 if (!isset($_SESSION["empleado"])) {
@@ -13,13 +13,14 @@ if (!isset($_SESSION["empleado"])) {
 		$_SESSION["empleado"] = $empleado;
 	}
 	// Si ya existían valores, los cogemos para inicializar el formulario
-	else
+	else{
 		$empleado = $_SESSION["empleado"];
 	
 		$aux['dni'] = "";
 		$aux['puesto'] = "";
 		$aux['salario'] = "";
 		$_SESSION["aux"] = $aux;
+	}
 	if (isset($_SESSION["errores"])){
 		$errores = $_SESSION["errores"];
 		unset($_SESSION["errores"]);
@@ -58,30 +59,31 @@ if (!isset($_SESSION["empleado"])) {
 			<p><i>Introduce el dni del empleado a modificar </i><em>*</em></p>
 			<fieldset><legend></legend>				
 					<div><label for="dni">DNI:<em>*</em></label>
-					<input id="dni" name="dni" type="text" size="20" value="<?php echo $empleado['DNI'] ?>" required/>
+					<input id="dni" name="dni" type="text" size="20" value="<?php echo $empleado ?>" required/>
 					</div>
-					<?php  $aux['dni']=$empleado['DNI']  ?>
+					<?php  $aux['dni']=$empleado  ?>
+					
+					<div><label for="salario">Salario<em>*</em></label>
+					<input id="salario" name="salario" type="text"  value="<?php echo $aux['salario'];?>" required>
+					</div>
 					
 					<div>
-                        <label>Tipo:*</label>
-                            <select name="Tipo" title="Indique el tipo de empleado" required>
+                        <label>Puesto:*</label>
+                            <select id="sel"  name="puesto" title="Indique el puesto del empleado" required>
                                 <?php
-                                $emp = array('JEFE', 'DEPENDIENTE', 'GESTOR DE ALMACEN');
-                                foreach ($emp as $e) {
-                                    if($util["Tipo"] == $e){
-                                        echo("<option value='" . $e . "'  selected>" . $e . "</option>");
+                                $aux = array('DEPENDIENTE', 'JEFE', 'GESTOR DE ALMACEN');
+                                foreach ($aux as $p) {
+                                    if($emp["puesto"] == $p){
+                                        echo("<option value='" . $p . "'  selected>" . $p . "</option>");
                                     } else {
-                                        echo("<option value='" . $e . "'>" . $e . "</option>");
+                                        echo("<option value='" . $p . "'>" . $p . "</option>");
                                     }
                                 }
                                 ?>
                             </select>
                     </div>
-                    <?php  $aux['puesto']=$emp['Tipo']  ?>
 					
-					<div><label for="salario">Salario<em>*</em></label>
-					<input id="salario" name="salario" type="text"  value="<?php echo $aux['salario'];?>" required>
-					</div>
+					
 				
 					
 				</fieldset>
@@ -90,7 +92,6 @@ if (!isset($_SESSION["empleado"])) {
 		
 		<?php
 	
-		include_once("pie.php");
 		cerrarConexionBD($conexion);
 		?>
 		

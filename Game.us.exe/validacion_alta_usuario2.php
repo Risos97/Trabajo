@@ -3,6 +3,7 @@ session_start();
 
 require_once ("gestionBD.php");
 require_once ("gestion_usuario.php");
+include_once("estilo.css");
 
 if (isset($_SESSION["formulario"])) {
 	$nuevoUsuario = $_SESSION["formulario"];
@@ -29,15 +30,15 @@ $conexion = crearConexionBD();
 		include_once ("cabecera.php");
 		?>
 		
-		<main>
-
+		<main id="va2">
+		
 		<?php
 		if(alta_usuario($conexion, $nuevoUsuario)){
 			$_SESSION["login"] = $nuevoUsuario["email"];
 		?>
 		
 		<!-- MENSAJE DE BIENVENIDO AL USUARIO -->
-		<h3>Usuario dado de alta con éxito con los siguientes datos:</h3>
+		<h5>Usuario dado de alta con éxito con los siguientes datos:</h5>
 
 		<ul>
 			<?php
@@ -54,8 +55,8 @@ $conexion = crearConexionBD();
 
 		<?php } else { ?>
 		<!-- MENSAJE DE QUE USUARIO YA EXISTE -->
-		<h3>Ya existe un usuario registrado con sus datos</h3>
-		<h4>Hay un usuario registrado con su Email o su Nickname</h4>
+		<h5>Ya existe un usuario registrado con sus datos</h5>
+		<h5>Hay un usuario registrado con su Email o su Nickname</h5>
 		<p>
 			<a href="formulario.php">Volver al formulario</a>
 		</p>
@@ -63,9 +64,7 @@ $conexion = crearConexionBD();
 
 		</main>
 
-		<?php
-		include_once ("pie.php");
-		?>
+		
 
 		<?php
 		cerrarConexionBD($conexion);

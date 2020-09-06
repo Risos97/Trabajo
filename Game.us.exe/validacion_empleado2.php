@@ -3,6 +3,7 @@ session_start();
 
 require_once ("gestionBD.php");
 require_once ("gestion_usuario.php");
+include_once("estilo.css");
 
 if (isset($_SESSION["alta"])) {
 	$nuevoUsuario = $_SESSION["alta"];
@@ -30,7 +31,7 @@ $oid=calculaOid($conexion,$nuevoUsuario['email']);
 		include_once ("cabecera.php");
 		?>
 		
-		<main>
+		<main id="va2">
 
 		<?php
 		if(alta_empleado($conexion, $nuevoUsuario)){
@@ -38,7 +39,7 @@ $oid=calculaOid($conexion,$nuevoUsuario['email']);
 		?>
 		
 		<!-- MENSAJE DE BIENVENIDO AL Empleado -->
-		<h3>Empleado dado de alta con éxito con los siguientes datos:</h3>
+		<h5>Empleado dado de alta con éxito con los siguientes datos:</h5>
 
 		<ul>
 			<?php
@@ -53,15 +54,8 @@ $oid=calculaOid($conexion,$nuevoUsuario['email']);
 
 		<?php } else { ?>
 		<!-- MENSAJE DE QUE EMPLEADO YA EXISTE -->
-		<h3>Ya existe un empleado registrado con sus datos</h3>
-		<ul>
-			<?php
-			echo "<li>DNI: " . $nuevoUsuario["dni"] . "</li>";
-			echo "<li>Puesto: " . $nuevoUsuario["puesto"] . "</li>";
-			echo "<li>oid: " . $oid . "</li>";
-			
-			?>
-		</ul>
+		<h5>Ya existe un empleado registrado con sus datos o no existe ningun usuario con ese email</h5>
+		
 		<p>
 			<a href="alta_empleado.php">Volver al alta empleado</a>
 		</p>
@@ -69,9 +63,7 @@ $oid=calculaOid($conexion,$nuevoUsuario['email']);
 
 		</main>
 
-		<?php
-		include_once ("pie.php");
-		?>
+		
 
 		<?php
 		cerrarConexionBD($conexion);

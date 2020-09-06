@@ -4,6 +4,7 @@ session_start();
 require_once ("gestionBD.php");
 require_once ("gestion_producto.php");
 require_once ("consulta_paginacion.php");
+include_once ("estilo.css");
 
 if (!isset($_SESSION['login']))
 	Header("Location: login_empleado.php");
@@ -61,13 +62,11 @@ else {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <!-- Hay que indicar el fichero externo de estilos -->
-    <!-- <link rel="stylesheet" type="text/css" href="css/biblio.css" /> -->
 	<script type="text/javascript" src="Js/boton.js"></script>
   <title>Gestión de Productos: Lista de Productos</title>
 </head>
 
-<body>
+<body id="cp">
 
 <?php
 
@@ -174,7 +173,7 @@ include_once ("cabecera.php");
 
 						<input id="NOMBRE" name="NOMBRE" type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
 
-						<div class="nombre"><b><?php echo $fila["NOMBRE"]; ?></b></div>
+						<div id="ncp" class="nombre"><b><?php echo $fila["NOMBRE"]; ?></b></div>
 
 						<div class="infor"> <em><?php echo $fila["DESCRIPCION"] . " " . $fila["PRECIO"] ."€";  ?></em></div>
 						
@@ -192,12 +191,6 @@ include_once ("cabecera.php");
 
 </main>
 
-
-
-<?php
-
-include_once ("pie.php");
-?>
 
 </body>
 

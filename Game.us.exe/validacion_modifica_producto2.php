@@ -3,6 +3,7 @@ session_start();
 
 require_once ("gestionBD.php");
 require_once ("gestion_producto.php");
+include_once ("estilo.css");
 
 if (isset($_SESSION["producto"])) {
 	$nuevoProducto = $_SESSION["producto"];
@@ -27,12 +28,12 @@ $conexion = crearConexionBD();
 		include_once ("cabecera.php");
 		?>
 		
-		<main>
+		<main id="va2">
 		<?php
 		actualizar($conexion,$nuevoProducto)
 		?>
 		<!-- MENSAJE DE PRODUCTO modificado -->
-		<h3>Producto actualizado con éxito con los siguientes datos:</h3>
+		<h5>Producto actualizado con éxito con los siguientes datos:</h5>
 
 		<ul>
 			<?php
@@ -45,10 +46,6 @@ $conexion = crearConexionBD();
 		<a href="menuEmpleado.php">Ir al menu de empleados</a>
 
 		</main>
-
-		<?php
-		include_once ("pie.php");
-		?>
 
 		<?php
 		cerrarConexionBD($conexion);

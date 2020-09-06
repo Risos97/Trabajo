@@ -4,7 +4,7 @@
 
 	// Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
 	
-	if (!isset($_SESSION["producto"])) {
+	if (!isset($_SESSION["product"])) {
 		$producto['idn'] = "";
 		$producto['precio'] = "";
 		$producto['nombre'] = "";
@@ -14,11 +14,11 @@
 		$producto['Tipo'] = "";
 		
 	
-		$_SESSION["producto"] = $producto;
+		$_SESSION["product"] = $producto;
 	}
 	// Si ya existían valores, los cogemos para inicializar el formulario
 	else
-		$producto = $_SESSION["producto"];
+		$producto = $_SESSION["product"];
 	
 	if (isset($_SESSION["errores"])){
 		$errores = $_SESSION["errores"];
@@ -56,11 +56,6 @@
   		}
 	?>
 	
-	<script>
-		
-		
-	</script>
-
 	
 	<form id="altaProducto" method="get" action="validacion_alta_producto.php" onsubmit="return validateForm2()" >
 			
@@ -111,10 +106,6 @@
 				<div><input type="submit" value="Enviar" /></div>
 		</form>
 		
-		<?php
-		include_once("pie.php");
-		
-		?>
-		
+
 	</body>
 </html>

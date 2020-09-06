@@ -18,11 +18,6 @@
 	else
 		$formulario = $_SESSION["formulario"];
 	
-	if (isset($_SESSION["errores"])){
-		$errores = $_SESSION["errores"];
-		unset($_SESSION["errores"]);
-	}
-	
 ?>
 
 <?php
@@ -49,29 +44,10 @@
 	<?php
 		include_once("cabecera.php");
 	?>
-	<?php 
-		if (isset($errores) && count($errores)>0) { 
-	    	echo "<div id=\"div_errores\" class=\"error\">";
-			echo "<h4> Errores en el formulario:</h4>";
-    		foreach($errores as $error){
-    			echo $error;
-			} 
-    		echo "</div>";
-  		}
-
-	
-	?>
-	
-	<script>
-	//////window.alert("jekdcwsc");
- 	
-	</script>
-	
 	
 	<form id="altaUsuario" method="get" action="validacion_alta_usuario.php" onsubmit="return validateForm()">
 		
-		<!--novalidate-> 
-		<!--onsubmit="return validateForm()"-->     
+		   
 		<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
 		<fieldset><legend>Datos Usuario</legend>
 					<div><label for="nombre">Nombre:<em>*</em></label>
@@ -107,10 +83,7 @@
 			<div><input type="submit" value="Enviar" /></div>
 	</form>
 	
-	<?php
-		//include_once("pie.php");
-		
-	?>
+
 	<script type="text/javascript" src="Js/validaciones.js"> </script>
 	</body>
 </html>

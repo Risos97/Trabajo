@@ -83,19 +83,30 @@ include_once ("estilo.css");
 						<br></br>
 						
 						<input id="NOMBRE" name="NOMBRE" type="hidden" value="<?php echo $datos["NOMBRE"]; ?>"/>
+						
+						<table id="TABLA">
+                        <tr>
+                            <td id="td">
+                        <div > <b>Nombre: </b> <?php echo $datos["NOMBRE"]; ?></div>
+                            </td>
+                            <td id="td">
+                        <div > <b>Dirección: </b> <?php echo $datos["DIRECCION"]; ?></div>
 
-						<div > <b>Nombre: </b> <?php echo $datos["NOMBRE"]; ?></div>
+                        </td>
+                        <td id="td">
+                        <div > <b>Móvil: </b> <?php echo $datos["MOVIL"]; ?></div>
+                        </td>
+                        <td id="td">
+                        <div > <b>Correo:</b> <?php echo $datos["CORREO"]; ?></div>
+                        </td>
+                        <td id="td">
+                        <div > <b>Nickname: </b><?php echo $datos["NICKNAME"]; ?></div>
+                        </td>
+                        </tr>
 
-						<div > <b>Dirección: </b> <?php echo $datos["DIRECCION"]; ?></div>
-						
-						<div > <b>Móvil: </b> <?php echo $datos["MOVIL"]; ?></div>
-						
-						<div > <b>Correo:</b> <?php echo $datos["CORREO"]; ?></div>
-						
-						<div > <b>Nickname: </b><?php echo $datos["NICKNAME"]; ?></div>
-						
-					</div>
-				<?php  ?>
+                        </table>
+                    </div>
+			
 
 				
      
